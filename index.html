@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0b3d62">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="DOT Admission">
+<title>Application for Admission &mdash; School of Engineering & Technology</title>
+<style>
+  :root{
+    --ink:#1c2733;
+    --ink-soft:#46586b;
+    --line:#c9d3dc;
+    --line-strong:#9fb0bf;
+    --paper:#fbfcfd;
+    --accent:#0b3d62;
+    --accent-2:#13639c;
+    --gold:#a8772b;
+    --danger:#b5302a;
+    --ok:#1f7a4d;
+    --shade:#eef3f7;
+    --disabled-bg:#f1f3f5;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Segoe UI",Roboto,system-ui,sans-serif;
+    background:
+      radial-gradient(circle at 12% 8%, #e8eef4 0%, transparent 40%),
+      radial-gradient(circle at 90% 100%, #e7eef3 0%, transparent 45%),
+      #dfe6ec;
+    color:var(--ink);
+    padding:28px 14px 60px;
+    line-height:1.45;
+  }
+  .sheet{
+    max-width:920px;margin:0 auto;background:var(--paper);
+    border:1px solid var(--line-strong);
+    box-shadow:0 18px 50px -22px rgba(11,61,98,.55);
+    border-radius:4px;overflow:hidden;
+  }
+  .head{
+    display:flex;align-items:flex-start;gap:18px;
+    padding:24px 30px 14px;border-bottom:2px solid var(--accent);
+    position:relative;
+  }
+  .crest{width:78px;height:78px;flex:none;object-fit:contain;}
+  .titles h1{margin:0;font-size:21px;letter-spacing:.2px;color:var(--accent);font-weight:700;}
+  .titles h2{margin:2px 0 0;font-size:15px;font-weight:600;color:var(--ink);}
+  .titles .dept{font-size:13px;color:var(--ink-soft);}
+  .titles .app{
+    margin-top:8px;font-size:20px;font-weight:800;letter-spacing:.5px;
+    text-transform:uppercase;color:var(--ink);
+  }
+  .formno{
+    position:absolute;top:18px;right:30px;font-size:12px;font-weight:700;
+    text-decoration:underline;color:var(--ink-soft);
+  }
+  .body{padding:22px 30px 30px;}
+
+  /* Receipt gate */
+  .gate{
+    background:linear-gradient(180deg,#fff7ea,#fdf0d8);
+    border:1px solid var(--gold);border-left:5px solid var(--gold);
+    border-radius:4px;padding:16px 18px;margin-bottom:26px;
+  }
+  .gate h3{margin:0 0 4px;font-size:14px;color:var(--gold);text-transform:uppercase;letter-spacing:.6px;}
+  .gate p{margin:0 0 12px;font-size:12.5px;color:var(--ink-soft);}
+  .gate .row{display:flex;gap:16px;flex-wrap:wrap;}
+  .gate .fld{flex:1;min-width:200px;}
+  .gate-status{margin-top:10px;font-size:12.5px;font-weight:600;}
+  .gate-status.locked{color:var(--danger);}
+  .gate-status.open{color:var(--ok);}
+
+  fieldset.main{border:0;padding:0;margin:0;}
+  fieldset.main[disabled]{opacity:.5;}
+  fieldset.main[disabled] *{cursor:not-allowed;}
+
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;}
+  .span2{grid-column:1 / -1;}
+  .fld{display:flex;flex-direction:column;gap:5px;margin-bottom:2px;}
+  label{font-size:12.5px;font-weight:600;color:var(--ink-soft);}
+  label .req{color:var(--danger);}
+  .opt{font-weight:400;font-style:italic;color:#8794a1;}
+  input,select{
+    font:inherit;font-size:14px;padding:9px 11px;border:1px solid var(--line);
+    border-radius:4px;background:#fff;color:var(--ink);width:100%;transition:.15s;
+  }
+  input:focus,select:focus{outline:none;border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(19,99,156,.15);}
+  input:disabled,select:disabled{background:var(--disabled-bg);color:#9aa7b2;}
+  input.bad{border-color:var(--danger);background:#fdf3f2;}
+  input.good{border-color:var(--ok);}
+  .hint{font-size:11.5px;color:#8794a1;}
+  .err{font-size:11.5px;color:var(--danger);min-height:0;display:none;}
+  .err.show{display:block;}
+
+  .section-label{
+    grid-column:1 / -1;margin:14px 0 2px;font-size:12px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.7px;color:var(--accent);
+    border-bottom:1px solid var(--line);padding-bottom:5px;
+  }
+
+  /* Photo box */
+  .photo-wrap{
+    grid-column:2;grid-row:1 / span 4;justify-self:end;
+    width:135px;text-align:center;
+  }
+  .photo-box{
+    width:135px;height:160px;border:1.5px dashed var(--line-strong);
+    border-radius:4px;background:var(--shade);display:flex;align-items:center;
+    justify-content:center;overflow:hidden;cursor:pointer;position:relative;
+    color:#8794a1;font-size:12.5px;text-align:center;padding:8px;
+  }
+  .photo-box img{width:100%;height:100%;object-fit:cover;}
+  .photo-box:hover{border-color:var(--accent-2);}
+  .photo-cap{font-size:11px;color:#8794a1;margin-top:6px;}
+  .photo-remove{
+    margin-top:6px;font-size:11.5px;color:var(--danger);background:none;border:none;
+    cursor:pointer;text-decoration:underline;display:none;padding:0;
+  }
+
+  .name-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+
+  .signline{
+    margin-top:34px;display:flex;justify-content:flex-end;
+  }
+  .signline .sign{
+    width:260px;border-top:1px solid var(--ink);padding-top:6px;
+    text-align:center;font-size:13px;font-weight:600;color:var(--ink-soft);
+  }
+
+  .actions{display:flex;gap:12px;justify-content:flex-end;margin-top:26px;}
+  button.btn{
+    font:inherit;font-weight:700;font-size:14px;padding:11px 26px;border-radius:5px;
+    border:1px solid transparent;cursor:pointer;transition:.15s;
+  }
+  .btn-primary{background:var(--accent);color:#fff;}
+  .btn-primary:hover:not(:disabled){background:var(--accent-2);}
+  .btn-primary:disabled{background:#9fb0bf;cursor:not-allowed;}
+  .btn-ghost{background:#fff;border-color:var(--line-strong);color:var(--ink-soft);}
+  .btn-ghost:hover{background:var(--shade);}
+
+  .toast{
+    position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(120%);
+    background:var(--ok);color:#fff;padding:13px 22px;border-radius:7px;font-weight:600;
+    box-shadow:0 10px 30px -8px rgba(0,0,0,.4);transition:.35s;z-index:50;font-size:14px;
+  }
+  .toast.show{transform:translateX(-50%) translateY(0);}
+  .toast.err{background:var(--danger);}
+
+  @media(max-width:680px){
+    body{padding:14px 8px 48px;}
+    .sheet{border-radius:8px;}
+    .head{flex-direction:column;padding:20px 18px 12px;}
+    .body{padding:18px 16px 24px;}
+    .grid{grid-template-columns:1fr;gap:14px;}
+    .photo-wrap{grid-column:1;grid-row:auto;justify-self:center;margin-bottom:6px;}
+    .name-grid{grid-template-columns:1fr;}
+    .formno{position:static;align-self:flex-end;margin:4px 0 8px;}
+    .gate .row{flex-direction:column;gap:12px;}
+    .actions{flex-direction:column-reverse;}
+    .actions .btn{width:100%;}
+    .signline{justify-content:center;}
+    .signline .sign{width:100%;}
+    /* 16px inputs prevent iOS auto-zoom on focus */
+    input,select{font-size:16px;padding:12px 12px;}
+    label{font-size:13px;}
+    button.btn{padding:14px 26px;}
+    .photo-box{width:120px;height:144px;}
+    .photo-wrap{width:120px;}
+  }
+  @media(max-width:380px){
+    .titles h1{font-size:18px;}
+    .titles .app{font-size:17px;}
+    .head{padding:16px 12px 10px;}
+    .body{padding:14px 12px 20px;}
+  }
+  @media(hover:none){
+    button.btn,select,.photo-box{min-height:44px;} /* comfortable touch targets */
+  }
+  @media print{
+    body{background:#fff;padding:0;}
+    .sheet{box-shadow:none;border:none;}
+    .gate,.actions{display:none;}
+  }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+<div class="sheet">
+  <div class="head">
+    <img class="crest" src="data:image/jpeg;base64,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" alt="Shivaji University crest">
+    <div class="titles">
+      <h1>Shivaji University, Kolhapur</h1>
+      <h2>School of Engineering &amp; Technology</h2>
+      <div class="dept">(Department of Technology)</div>
+      <div class="app">Application for Admission</div>
+    </div>
+    <div class="formno">Form DOT/01-1</div>
+  </div>
+
+  <div class="body">
+    <!-- Receipt gate -->
+    <div class="gate">
+      <h3>Fee Receipt Verification</h3>
+      <p>Enter the fee receipt date and receipt number to unlock the admission form.</p>
+      <div class="row">
+        <div class="fld">
+          <label for="receiptDate">Receipt Date <span class="req">*</span></label>
+          <input type="date" id="receiptDate">
+        </div>
+        <div class="fld">
+          <label for="receiptNo">Receipt Number <span class="req">*</span></label>
+          <input type="text" id="receiptNo" placeholder="e.g. DOT/2026/00123" autocomplete="off">
+        </div>
+      </div>
+      <div class="gate-status locked" id="gateStatus">&#128274; Form locked &mdash; receipt details required.</div>
+    </div>
+
+    <form id="admForm" novalidate>
+    <fieldset class="main" id="mainFs" disabled>
+      <div class="grid">
+
+        <!-- Photo -->
+        <div class="photo-wrap">
+          <div class="photo-box" id="photoBox">
+            <span id="photoPlaceholder">Click to upload<br>Photo<br><small>(max 1 MB)</small></span>
+            <img id="photoPreview" style="display:none" alt="photo preview">
+          </div>
+          <input type="file" id="photoInput" accept="image/*" hidden>
+          <div class="photo-cap">JPG / PNG &middot; &le; 1 MB</div>
+          <button type="button" class="photo-remove" id="photoRemove">Remove</button>
+        </div>
+
+        <div class="fld">
+          <label for="dateField">Date</label>
+          <input type="date" id="dateField" readonly>
+          <span class="hint">Auto-filled with today's date.</span>
+        </div>
+
+        <div class="fld">
+          <label for="classField">Class <span class="req">*</span></label>
+          <select id="classField">
+            <option value="">-- Select --</option>
+            <option>1st Year</option>
+            <option>Direct Second Year</option>
+          </select>
+        </div>
+
+        <div class="fld">
+          <label for="academicYear">Academic Year</label>
+          <input type="text" id="academicYear" value="2026-27" readonly>
+        </div>
+
+        <div class="fld">
+          <label for="courseField">Course <span class="req">*</span></label>
+          <select id="courseField">
+            <option value="">-- Select --</option>
+            <option>B.Tech.</option>
+            <option>M.Tech.</option>
+          </select>
+        </div>
+
+        <div class="fld">
+          <label for="programmeField">Programme <span class="req">*</span></label>
+          <select id="programmeField" disabled>
+            <option value="">-- Select course first --</option>
+          </select>
+        </div>
+
+        <div class="fld">
+          <label for="casteField">Caste Category <span class="req">*</span></label>
+          <select id="casteField">
+            <option value="">-- Select --</option>
+            <option>Open</option><option>SEBC</option><option>EWS</option>
+            <option>OBC</option><option>SBC</option><option>SC</option>
+            <option>ST</option><option>NT</option><option>VJ-NT</option>
+            <option>Minority</option>
+          </select>
+        </div>
+
+        <div class="fld" id="minorityWrap" style="display:none">
+          <label for="minorityField">Minority <span class="req">*</span></label>
+          <select id="minorityField">
+            <option value="">-- Select --</option>
+            <option>Muslims</option><option>Sikhs</option><option>Christians</option>
+            <option>Buddhists</option><option>Jain</option><option>Zoroastrians (Parsis)</option>
+          </select>
+        </div>
+
+        <!-- Name -->
+        <div class="section-label">Name of Student</div>
+        <div class="span2">
+          <div class="name-grid">
+            <div class="fld">
+              <label for="surname">Surname <span class="req">*</span></label>
+              <input type="text" id="surname" autocomplete="off">
+            </div>
+            <div class="fld">
+              <label for="firstName">First Name <span class="req">*</span></label>
+              <input type="text" id="firstName" autocomplete="off">
+            </div>
+            <div class="fld">
+              <label for="middleName">Middle Name</label>
+              <input type="text" id="middleName" autocomplete="off">
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="section-label">Contact &amp; Identity</div>
+        <div class="fld">
+          <label for="studentMob">Student's Mobile No. <span class="req">*</span></label>
+          <input type="tel" id="studentMob" inputmode="numeric" maxlength="10" placeholder="10-digit number">
+          <span class="err" id="studentMobErr">Enter a valid 10-digit mobile number (starts 6-9).</span>
+        </div>
+        <div class="fld">
+          <label for="fatherMob">Father's Mobile No.</label>
+          <input type="tel" id="fatherMob" inputmode="numeric" maxlength="10" placeholder="10-digit number">
+          <span class="err" id="fatherMobErr">Enter a valid 10-digit mobile number.</span>
+        </div>
+        <div class="fld">
+          <label for="motherMob">Mother's Mobile No.</label>
+          <input type="tel" id="motherMob" inputmode="numeric" maxlength="10" placeholder="10-digit number">
+          <span class="err" id="motherMobErr">Enter a valid 10-digit mobile number.</span>
+        </div>
+        <div class="fld">
+          <label for="aadhaar">Aadhaar No. <span class="req">*</span></label>
+          <input type="tel" id="aadhaar" inputmode="numeric" maxlength="14" placeholder="12-digit Aadhaar">
+          <span class="err" id="aadhaarErr">Aadhaar must be 12 digits.</span>
+        </div>
+        <div class="fld span2">
+          <label for="email">Email <span class="req">*</span></label>
+          <input type="email" id="email" placeholder="name@example.com" autocomplete="off">
+          <span class="err" id="emailErr">Enter a valid email address.</span>
+        </div>
+
+        <div class="fld span2">
+          <label for="abcId">ABC ID <span class="opt">(optional)</span></label>
+          <input type="text" id="abcId" placeholder="Academic Bank of Credits ID" autocomplete="off">
+        </div>
+
+        <!-- Address -->
+        <div class="section-label">Address</div>
+        <div class="fld span2">
+          <label for="address">Address <span class="req">*</span></label>
+          <input type="text" id="address" autocomplete="off">
+        </div>
+        <div class="fld">
+          <label for="stateField">State <span class="req">*</span></label>
+          <select id="stateField">
+            <option value="">-- Select --</option>
+            <option>Maharashtra</option>
+            <option>Other than Maharashtra</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="pincode">Pin Code <span class="req">*</span></label>
+          <input type="tel" id="pincode" inputmode="numeric" maxlength="6" placeholder="6-digit">
+          <span class="err" id="pincodeErr">Pin code must be 6 digits.</span>
+        </div>
+        <div class="fld span2" id="univWrap" style="display:none">
+          <label for="univName">Name of University (outside Maharashtra) <span class="req">*</span></label>
+          <input type="text" id="univName" autocomplete="off" placeholder="Enter the university you belong to">
+        </div>
+
+        <!-- Personal -->
+        <div class="section-label">Personal Details</div>
+        <div class="fld">
+          <label for="dob">Date of Birth <span class="req">*</span></label>
+          <input type="date" id="dob">
+        </div>
+        <div class="fld">
+          <label for="placeBirth">Place of Birth <span class="req">*</span></label>
+          <input type="text" id="placeBirth" autocomplete="off">
+        </div>
+        <div class="fld">
+          <label for="motherName">Mother's Name <span class="req">*</span></label>
+          <input type="text" id="motherName" autocomplete="off">
+        </div>
+        <div class="fld">
+          <label for="bloodGroup">Blood Group <span class="req">*</span></label>
+          <select id="bloodGroup">
+            <option value="">-- Select --</option>
+            <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+            <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+          </select>
+        </div>
+        <div class="fld">
+          <label for="sexField">Sex <span class="req">*</span></label>
+          <select id="sexField">
+            <option value="">-- Select --</option>
+            <option>Male</option><option>Female</option><option>Transgender</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="signline">
+        <div class="sign">Signature of Student</div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn btn-ghost" id="resetBtn">Reset</button>
+        <button type="submit" class="btn btn-primary" id="submitBtn">Submit Application</button>
+      </div>
+    </fieldset>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var PROGRAMMES = {
+    "B.Tech.":[
+      "Computer Science and Technology","Chemical Engineering","Civil Engineering",
+      "Electronics and Telecommunication Engineering","Food Technology","Mechanical Engineering"
+    ],
+    "M.Tech.":[
+      "Computer Science and Technology","Electronics Technology","Energy Technology",
+      "Environment Science and Technology","Food Technology"
+    ]
+  };
+
+  var $ = function(id){ return document.getElementById(id); };
+
+  // ---- Auto date ----
+  function todayISO(){
+    var d = new Date(), m = (d.getMonth()+1), day = d.getDate();
+    return d.getFullYear()+"-"+(m<10?"0"+m:m)+"-"+(day<10?"0"+day:day);
+  }
+  $("dateField").value = todayISO();
+
+  // ---- Receipt gate ----
+  var mainFs = $("mainFs");
+  function checkGate(){
+    var ok = $("receiptDate").value && $("receiptNo").value.trim().length>0;
+    mainFs.disabled = !ok;
+    var st = $("gateStatus");
+    if(ok){ st.className="gate-status open"; st.innerHTML="&#9989; Form unlocked &mdash; you may fill in the application."; }
+    else { st.className="gate-status locked"; st.innerHTML="&#128274; Form locked &mdash; receipt details required."; }
+  }
+  $("receiptDate").addEventListener("input",checkGate);
+  $("receiptNo").addEventListener("input",checkGate);
+
+  // ---- Course -> Programme ----
+  $("courseField").addEventListener("change",function(){
+    var prog = $("programmeField");
+    prog.innerHTML="";
+    var list = PROGRAMMES[this.value];
+    if(!list){
+      prog.disabled=true;
+      prog.innerHTML='<option value="">-- Select course first --</option>';
+      return;
+    }
+    prog.disabled=false;
+    prog.innerHTML='<option value="">-- Select --</option>';
+    list.forEach(function(p){
+      var o=document.createElement("option"); o.textContent=p; prog.appendChild(o);
+    });
+  });
+
+  // ---- Caste -> Minority ----
+  $("casteField").addEventListener("change",function(){
+    $("minorityWrap").style.display = (this.value==="Minority") ? "flex":"none";
+    if(this.value!=="Minority") $("minorityField").value="";
+  });
+
+  // ---- State -> University ----
+  $("stateField").addEventListener("change",function(){
+    var show = this.value==="Other than Maharashtra";
+    $("univWrap").style.display = show ? "flex":"none";
+    if(!show) $("univName").value="";
+  });
+
+  // ---- Numeric-only enforcement ----
+  ["studentMob","fatherMob","motherMob","aadhaar","pincode"].forEach(function(id){
+    $(id).addEventListener("input",function(){
+      this.value=this.value.replace(/\D/g,"");
+    });
+  });
+
+  // ---- Validators ----
+  function vMobile(v){ return /^[6-9]\d{9}$/.test(v); }
+  function vEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+  function vAadhaar(v){ return /^\d{12}$/.test(v); }
+  function vPin(v){ return /^\d{6}$/.test(v); }
+
+  function liveCheck(id,errId,fn,required){
+    var el=$(id), err=$(errId);
+    function run(){
+      var v=el.value.trim();
+      if(v===""){ el.classList.remove("bad","good"); err.classList.remove("show"); return; }
+      if(fn(v)){ el.classList.add("good"); el.classList.remove("bad"); err.classList.remove("show"); }
+      else { el.classList.add("bad"); el.classList.remove("good"); err.classList.add("show"); }
+    }
+    el.addEventListener("blur",run);
+    el.addEventListener("input",function(){ if(el.classList.contains("bad")) run(); });
+  }
+  liveCheck("studentMob","studentMobErr",vMobile,true);
+  liveCheck("fatherMob","fatherMobErr",vMobile,false);
+  liveCheck("motherMob","motherMobErr",vMobile,false);
+  liveCheck("aadhaar","aadhaarErr",vAadhaar,true);
+  liveCheck("email","emailErr",vEmail,true);
+  liveCheck("pincode","pincodeErr",vPin,true);
+
+  // ---- Photo upload (max 1 MB) ----
+  var photoBox=$("photoBox"), photoInput=$("photoInput"),
+      photoPreview=$("photoPreview"), photoPlaceholder=$("photoPlaceholder"),
+      photoRemove=$("photoRemove");
+  photoBox.addEventListener("click",function(){ if(!mainFs.disabled) photoInput.click(); });
+  photoInput.addEventListener("change",function(){
+    var f=this.files[0]; if(!f) return;
+    if(!/^image\//.test(f.type)){ showToast("Please select an image file.",true); this.value=""; return; }
+    if(f.size > 1024*1024){
+      showToast("Photo exceeds 1 MB. Please choose a smaller image.",true);
+      this.value=""; return;
+    }
+    var r=new FileReader();
+    r.onload=function(e){
+      photoPreview.src=e.target.result;
+      photoPreview.style.display="block";
+      photoPlaceholder.style.display="none";
+      photoRemove.style.display="inline";
+    };
+    r.readAsDataURL(f);
+  });
+  photoRemove.addEventListener("click",function(){
+    photoInput.value=""; photoPreview.src=""; photoPreview.style.display="none";
+    photoPlaceholder.style.display="block"; this.style.display="none";
+  });
+
+  // ---- Toast ----
+  var toastTimer;
+  function showToast(msg,isErr){
+    var t=$("toast"); t.textContent=msg;
+    t.className="toast show"+(isErr?" err":"");
+    clearTimeout(toastTimer);
+    toastTimer=setTimeout(function(){ t.className="toast"+(isErr?" err":""); },3200);
+  }
+
+  // ---- Submit ----
+  function markErr(el,err,bad){
+    if(bad){ el.classList.add("bad"); if(err) err.classList.add("show"); }
+    else { el.classList.remove("bad"); if(err) err.classList.remove("show"); }
+  }
+
+  $("admForm").addEventListener("submit",function(ev){
+    ev.preventDefault();
+    if(mainFs.disabled){ showToast("Enter receipt details to unlock the form.",true); return; }
+    var problems=[];
+
+    // required selects/inputs
+    var requiredFields=[
+      ["classField",null,"Class"],["courseField",null,"Course"],
+      ["programmeField",null,"Programme"],["casteField",null,"Caste"],
+      ["surname",null,"Surname"],["firstName",null,"First Name"],
+      ["address",null,"Address"],["stateField",null,"State"],
+      ["placeBirth",null,"Place of Birth"],["motherName",null,"Mother's Name"],
+      ["dob",null,"Date of Birth"],["bloodGroup",null,"Blood Group"],["sexField",null,"Sex"]
+    ];
+    requiredFields.forEach(function(f){
+      var el=$(f[0]); var empty=!el.value.trim();
+      markErr(el,null,empty); if(empty) problems.push(f[2]);
+    });
+
+    if($("casteField").value==="Minority" && !$("minorityField").value){
+      markErr($("minorityField"),null,true); problems.push("Minority");
+    }
+    if($("stateField").value==="Other than Maharashtra" && !$("univName").value.trim()){
+      markErr($("univName"),null,true); problems.push("University Name");
+    }
+
+    // validated fields
+    function check(id,err,fn,name,req){
+      var el=$(id),v=el.value.trim();
+      if(v===""){ if(req){ markErr(el,$(err),true); problems.push(name);} return; }
+      if(!fn(v)){ markErr(el,$(err),true); problems.push(name); }
+    }
+    check("studentMob","studentMobErr",vMobile,"Student Mobile",true);
+    check("fatherMob","fatherMobErr",vMobile,"Father Mobile",false);
+    check("motherMob","motherMobErr",vMobile,"Mother Mobile",false);
+    check("aadhaar","aadhaarErr",vAadhaar,"Aadhaar",true);
+    check("email","emailErr",vEmail,"Email",true);
+    check("pincode","pincodeErr",vPin,"Pin Code",true);
+
+    if(problems.length){
+      showToast(problems.length+" field(s) need attention: "+problems.slice(0,4).join(", ")+(problems.length>4?"…":""),true);
+      var first=document.querySelector(".bad"); if(first) first.scrollIntoView({behavior:"smooth",block:"center"});
+      return;
+    }
+    // ---- Gather data ----
+    var data = collectData();
+    generatePDF(data);
+    saveToSheet(data);
+  });
+
+  // ---- Collect all field values ----
+  function collectData(){
+    var fullName = [$("surname").value, $("firstName").value, $("middleName").value]
+                   .filter(function(s){return s.trim();}).join(" ");
+    var caste = $("casteField").value;
+    if(caste==="Minority") caste += " - "+$("minorityField").value;
+    var state = $("stateField").value;
+    if(state==="Other than Maharashtra" && $("univName").value.trim())
+      state += " (University: "+$("univName").value.trim()+")";
+    return {
+      "Receipt Date": $("receiptDate").value,
+      "Receipt No": $("receiptNo").value,
+      "Application Date": $("dateField").value,
+      "Class": $("classField").value,
+      "Academic Year": $("academicYear").value,
+      "Course": $("courseField").value,
+      "Programme": $("programmeField").value,
+      "Caste": caste,
+      "Surname": $("surname").value,
+      "First Name": $("firstName").value,
+      "Middle Name": $("middleName").value,
+      "Full Name": fullName,
+      "Student Mobile": $("studentMob").value,
+      "Father Mobile": $("fatherMob").value,
+      "Mother Mobile": $("motherMob").value,
+      "Aadhaar No": $("aadhaar").value,
+      "Email": $("email").value,
+      "ABC ID": $("abcId").value,
+      "Address": $("address").value,
+      "State": state,
+      "Pin Code": $("pincode").value,
+      "Date of Birth": $("dob").value,
+      "Place of Birth": $("placeBirth").value,
+      "Mother Name": $("motherName").value,
+      "Blood Group": $("bloodGroup").value,
+      "Sex": $("sexField").value,
+      "_photo": (photoPreview.src && photoPreview.style.display!=="none") ? photoPreview.src : ""
+    };
+  }
+
+  // ---- PDF generation: replicates the official paper form layout ----
+  var FORM_LOGO = "data:image/jpeg;base64,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";
+
+  function fmtDate(s){
+    if(!s) return "";
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+    return m ? (m[3]+"/"+m[2]+"/"+m[1]) : s;
+  }
+
+  function generatePDF(d){
+    try{
+      var jsPDF = window.jspdf.jsPDF;
+      var doc = new jsPDF({unit:"pt", format:"a4"});
+      var W = doc.internal.pageSize.getWidth();
+      var H = doc.internal.pageSize.getHeight();
+      var M = 42, RIGHT = W - M;
+      var INK=[20,28,38], LINE=[110,120,130];
+
+      // single underlined "fill-in" field
+      function fld(label,val,x,y,endX){
+        doc.setFont("helvetica","bold"); doc.setFontSize(10.5); doc.setTextColor(INK[0],INK[1],INK[2]);
+        doc.text(label,x,y);
+        var lx = x + doc.getTextWidth(label) + 5;
+        doc.setFont("helvetica","normal"); doc.setTextColor(0,0,0);
+        if(val!=null && val!=="") doc.text(String(val), lx+2, y-1.5);
+        doc.setDrawColor(LINE[0],LINE[1],LINE[2]); doc.setLineWidth(0.5);
+        doc.line(lx, y+2, endX, y+2);
+        return lx;
+      }
+
+      // ===== Form number (top-right, underlined) =====
+      doc.setFont("helvetica","bold"); doc.setFontSize(11); doc.setTextColor(INK[0],INK[1],INK[2]);
+      doc.text("Form DOT/01-1", RIGHT, 60, {align:"right"});
+      var fnW = doc.getTextWidth("Form DOT/01-1");
+      doc.setLineWidth(0.7); doc.setDrawColor(INK[0],INK[1],INK[2]);
+      doc.line(RIGHT-fnW, 63, RIGHT, 63);
+
+      // ===== Photo box (top-right) =====
+      var pbW=92, pbH=104, pbX=RIGHT-pbW, pbY=78;
+      if(d._photo){
+        try{ doc.addImage(d._photo,"JPEG",pbX+1,pbY+1,pbW-2,pbH-2); }
+        catch(e){ try{ doc.addImage(d._photo,"PNG",pbX+1,pbY+1,pbW-2,pbH-2);}catch(e2){} }
+      } else {
+        doc.setFont("helvetica","normal"); doc.setFontSize(10); doc.setTextColor(120,120,120);
+        doc.text("Photo", pbX+pbW/2, pbY+pbH/2+3, {align:"center"});
+      }
+      doc.setDrawColor(INK[0],INK[1],INK[2]); doc.setLineWidth(0.8);
+      doc.rect(pbX,pbY,pbW,pbH);
+
+      // ===== Logo + titles =====
+      try{ doc.addImage(FORM_LOGO,"JPEG",M,150,48,48); }catch(e){}
+      var tx = M+58;
+      doc.setTextColor(INK[0],INK[1],INK[2]);
+      doc.setFont("helvetica","bold"); doc.setFontSize(13);
+      doc.text("Shivaji University, Kolhapur", tx, 162);
+      doc.setFontSize(11);
+      doc.text("School of Engineering & Technology", tx, 178);
+      doc.setFont("helvetica","normal"); doc.setFontSize(10.5);
+      doc.text("(Department of Technology)", tx, 192);
+      doc.setFont("helvetica","bold"); doc.setFontSize(16);
+      doc.text("Application for Admission", tx, 213);
+
+      // ===== Date (right) =====
+      fld("Date :", fmtDate(d["Application Date"]), 372, 236, RIGHT);
+
+      // ===== Requesting line =====
+      doc.setFont("helvetica","normal"); doc.setFontSize(10.5); doc.setTextColor(INK[0],INK[1],INK[2]);
+      doc.text("Requesting for admission to academic course,", M, 258);
+
+      // ===== Class / Academic year / Course / Programme / Caste =====
+      fld("Class :", d["Class"], M, 282, 250);
+      fld("Academic Year :", d["Academic Year"], 320, 282, RIGHT);
+      fld("Course :", d["Course"], M, 304, 250);
+      fld("Programme :", d["Programme"], 320, 304, RIGHT);
+      fld("Caste :", d["Caste"], M, 326, RIGHT);
+
+      // ===== Name (full width) =====
+      fld("Name :", d["Full Name"], M, 356, RIGHT);
+
+      // ===== Contact block (two columns) =====
+      fld("Student's Mob. No. :", d["Student Mobile"], M, 388, 290);
+      fld("Father's Mob. No :", d["Father Mobile"], 315, 388, RIGHT);
+      fld("Mother's Mob.No :", d["Mother Mobile"], M, 410, 290);
+      fld("Aadhaar No. :", d["Aadhaar No"], 315, 410, RIGHT);
+      fld("Email :", d["Email"], M, 432, 290);
+      fld("ABC ID :", d["ABC ID"], 315, 432, RIGHT);
+
+      // ===== Address (wraps) =====
+      doc.setFont("helvetica","bold"); doc.setFontSize(10.5); doc.setTextColor(INK[0],INK[1],INK[2]);
+      doc.text("Address :", M, 460);
+      var ax = M + doc.getTextWidth("Address :") + 5;
+      doc.setFont("helvetica","normal"); doc.setTextColor(0,0,0);
+      var aFull = String(d["Address"]||"");
+      var firstLine = doc.splitTextToSize(aFull, RIGHT-ax)[0] || "";
+      doc.text(firstLine, ax+2, 458.5);
+      doc.setDrawColor(LINE[0],LINE[1],LINE[2]); doc.setLineWidth(0.5);
+      doc.line(ax, 462, RIGHT, 462);
+      var rest = aFull.substring(firstLine.length).trim();
+      var restLines = rest ? doc.splitTextToSize(rest, RIGHT-M) : [];
+      var ay = 482;
+      doc.line(M, ay, RIGHT, ay);
+      if(restLines[0]) doc.text(restLines[0], M+2, ay-3.5);
+
+      // ===== State / Pin =====
+      fld("State :", d["State"], M, 510, 295);
+      fld("Pin Code :", d["Pin Code"], 320, 510, RIGHT);
+
+      // ===== Divider =====
+      doc.setDrawColor(INK[0],INK[1],INK[2]); doc.setLineWidth(1.4);
+      doc.line(M, 532, RIGHT, 532);
+
+      // ===== DOB / Place / Mother / Blood / Sex =====
+      fld("Date of birth :", fmtDate(d["Date of Birth"]), M, 562, 300);
+      fld("Place of birth :", d["Place of Birth"], 320, 562, RIGHT);
+      fld("Mother Name :", d["Mother Name"], M, 586, RIGHT);
+      fld("Blood Group :", d["Blood Group"], M, 612, 250);
+      fld("Sex :", d["Sex"], 320, 612, RIGHT);
+
+      // ===== Signature =====
+      doc.setFont("helvetica","normal"); doc.setFontSize(11); doc.setTextColor(INK[0],INK[1],INK[2]);
+      doc.text("Signature of Student", RIGHT, 720, {align:"right"});
+      doc.setDrawColor(INK[0],INK[1],INK[2]); doc.setLineWidth(1.2);
+      doc.line(M, 752, RIGHT, 752);
+
+      var fname = (d["Full Name"]||"admission").replace(/[^a-z0-9]+/gi,"_");
+      doc.save("Admission_"+fname+".pdf");
+    }catch(err){
+      console.error(err);
+      showToast("Could not generate PDF (library not loaded).", true);
+    }
+  }
+
+  // ---- Save to Google Sheet ----
+  // Deploy the Apps Script (see instructions) and paste its Web App URL below.
+  var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbwlcDMQiFTDEPh4vFEKC7YNy8c8UVCnVr8oAtFVfF6glFRwfkodNSfmg3DNOqYM8Vay/exec"; // e.g. "https://script.google.com/macros/s/AKfy.../exec"
+
+  function saveToSheet(d){
+    if(!SHEET_ENDPOINT){
+      showToast("\u2705 PDF generated. (Add Sheet URL in code to enable Google Sheet save.)");
+      return;
+    }
+    var payload = {}; for(var k in d){ if(k!=="_photo") payload[k]=d[k]; }
+    fetch(SHEET_ENDPOINT, {
+      method:"POST",
+      mode:"no-cors",
+      headers:{"Content-Type":"text/plain;charset=utf-8"},
+      body: JSON.stringify(payload)
+    }).then(function(){
+      showToast("\u2705 Application submitted — PDF generated & saved to Google Sheet.");
+    }).catch(function(){
+      showToast("PDF generated, but saving to Google Sheet failed.", true);
+    });
+  }
+
+  // ---- Reset ----
+  $("resetBtn").addEventListener("click",function(){
+    $("admForm").reset();
+    $("dateField").value=todayISO();
+    $("academicYear").value="2026-27";
+    $("programmeField").disabled=true;
+    $("programmeField").innerHTML='<option value="">-- Select course first --</option>';
+    $("minorityWrap").style.display="none";
+    $("univWrap").style.display="none";
+    document.querySelectorAll(".bad,.good").forEach(function(e){e.classList.remove("bad","good");});
+    document.querySelectorAll(".err.show").forEach(function(e){e.classList.remove("show");});
+    photoRemove.click ? photoRemove.click():0;
+    photoPreview.style.display="none"; photoPlaceholder.style.display="block";
+    photoRemove.style.display="none";
+  });
+
+  checkGate();
+})();
+</script>
+</body>
+</html>
