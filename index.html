@@ -7,65 +7,32 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="DOT Admission">
-<title>Application for Admission &mdash; School of Engineering & Technology</title>
+<title>Application for Admission &mdash; School of Engineering &amp; Technology</title>
 <style>
   :root{
-    --ink:#1c2733;
-    --ink-soft:#46586b;
-    --line:#c9d3dc;
-    --line-strong:#9fb0bf;
-    --paper:#fbfcfd;
-    --accent:#0b3d62;
-    --accent-2:#13639c;
-    --gold:#a8772b;
-    --danger:#b5302a;
-    --ok:#1f7a4d;
-    --shade:#eef3f7;
-    --disabled-bg:#f1f3f5;
+    --ink:#1c2733; --ink-soft:#46586b; --line:#c9d3dc; --line-strong:#9fb0bf;
+    --paper:#fbfcfd; --accent:#0b3d62; --accent-2:#13639c; --gold:#a8772b;
+    --danger:#b5302a; --ok:#1f7a4d; --shade:#eef3f7; --disabled-bg:#f1f3f5;
   }
   *{box-sizing:border-box;}
-  body{
-    margin:0;
-    font-family:"Segoe UI",Roboto,system-ui,sans-serif;
-    background:
-      radial-gradient(circle at 12% 8%, #e8eef4 0%, transparent 40%),
-      radial-gradient(circle at 90% 100%, #e7eef3 0%, transparent 45%),
-      #dfe6ec;
-    color:var(--ink);
-    padding:28px 14px 60px;
-    line-height:1.45;
-  }
-  .sheet{
-    max-width:920px;margin:0 auto;background:var(--paper);
-    border:1px solid var(--line-strong);
-    box-shadow:0 18px 50px -22px rgba(11,61,98,.55);
-    border-radius:4px;overflow:hidden;
-  }
-  .head{
-    display:flex;align-items:flex-start;gap:18px;
-    padding:24px 30px 14px;border-bottom:2px solid var(--accent);
-    position:relative;
-  }
+  body{margin:0;font-family:"Segoe UI",Roboto,system-ui,sans-serif;
+    background:radial-gradient(circle at 12% 8%,#e8eef4 0%,transparent 40%),
+      radial-gradient(circle at 90% 100%,#e7eef3 0%,transparent 45%),#dfe6ec;
+    color:var(--ink);padding:28px 14px 60px;line-height:1.45;}
+  .sheet{max-width:960px;margin:0 auto;background:var(--paper);border:1px solid var(--line-strong);
+    box-shadow:0 18px 50px -22px rgba(11,61,98,.55);border-radius:6px;overflow:hidden;}
+  .head{display:flex;align-items:flex-start;gap:18px;padding:24px 30px 14px;
+    border-bottom:2px solid var(--accent);position:relative;}
   .crest{width:78px;height:78px;flex:none;object-fit:contain;}
   .titles h1{margin:0;font-size:21px;letter-spacing:.2px;color:var(--accent);font-weight:700;}
   .titles h2{margin:2px 0 0;font-size:15px;font-weight:600;color:var(--ink);}
   .titles .dept{font-size:13px;color:var(--ink-soft);}
-  .titles .app{
-    margin-top:8px;font-size:20px;font-weight:800;letter-spacing:.5px;
-    text-transform:uppercase;color:var(--ink);
-  }
-  .formno{
-    position:absolute;top:18px;right:30px;font-size:12px;font-weight:700;
-    text-decoration:underline;color:var(--ink-soft);
-  }
+  .titles .app{margin-top:8px;font-size:20px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--ink);}
+  .formno{position:absolute;top:18px;right:30px;font-size:12px;font-weight:700;text-decoration:underline;color:var(--ink-soft);}
   .body{padding:22px 30px 30px;}
 
-  /* Receipt gate */
-  .gate{
-    background:linear-gradient(180deg,#fff7ea,#fdf0d8);
-    border:1px solid var(--gold);border-left:5px solid var(--gold);
-    border-radius:4px;padding:16px 18px;margin-bottom:26px;
-  }
+  .gate{background:linear-gradient(180deg,#fff7ea,#fdf0d8);border:1px solid var(--gold);
+    border-left:5px solid var(--gold);border-radius:4px;padding:16px 18px;margin-bottom:26px;}
   .gate h3{margin:0 0 4px;font-size:14px;color:var(--gold);text-transform:uppercase;letter-spacing:.6px;}
   .gate p{margin:0 0 12px;font-size:12.5px;color:var(--ink-soft);}
   .gate .row{display:flex;gap:16px;flex-wrap:wrap;}
@@ -84,69 +51,49 @@
   label{font-size:12.5px;font-weight:600;color:var(--ink-soft);}
   label .req{color:var(--danger);}
   .opt{font-weight:400;font-style:italic;color:#8794a1;}
-  input,select{
-    font:inherit;font-size:14px;padding:9px 11px;border:1px solid var(--line);
-    border-radius:4px;background:#fff;color:var(--ink);width:100%;transition:.15s;
-  }
+  input,select{font:inherit;font-size:14px;padding:9px 11px;border:1px solid var(--line);
+    border-radius:4px;background:#fff;color:var(--ink);width:100%;transition:.15s;}
   input:focus,select:focus{outline:none;border-color:var(--accent-2);box-shadow:0 0 0 3px rgba(19,99,156,.15);}
   input:disabled,select:disabled{background:var(--disabled-bg);color:#9aa7b2;}
   input.bad{border-color:var(--danger);background:#fdf3f2;}
   input.good{border-color:var(--ok);}
   .hint{font-size:11.5px;color:#8794a1;}
-  .err{font-size:11.5px;color:var(--danger);min-height:0;display:none;}
+  .err{font-size:11.5px;color:var(--danger);display:none;}
   .err.show{display:block;}
+  .section-label{grid-column:1 / -1;margin:14px 0 2px;font-size:12px;font-weight:700;text-transform:uppercase;
+    letter-spacing:.7px;color:var(--accent);border-bottom:1px solid var(--line);padding-bottom:5px;}
 
-  .section-label{
-    grid-column:1 / -1;margin:14px 0 2px;font-size:12px;font-weight:700;
-    text-transform:uppercase;letter-spacing:.7px;color:var(--accent);
-    border-bottom:1px solid var(--line);padding-bottom:5px;
-  }
+  .mode{display:none;}
+  .mode-banner{grid-column:1/-1;margin:6px 0 2px;font-size:12px;font-weight:700;color:var(--accent-2);
+    background:#eaf2f9;border:1px solid #cfe0ef;border-radius:5px;padding:8px 12px;letter-spacing:.3px;}
+  .pick-hint{padding:20px;text-align:center;color:var(--ink-soft);font-size:13.5px;
+    border:1px dashed var(--line-strong);border-radius:6px;background:#fff;margin-top:6px;}
 
-  /* Photo box */
-  .photo-wrap{
-    grid-column:2;grid-row:1 / span 4;justify-self:end;
-    width:135px;text-align:center;
-  }
-  .photo-box{
-    width:135px;height:160px;border:1.5px dashed var(--line-strong);
-    border-radius:4px;background:var(--shade);display:flex;align-items:center;
-    justify-content:center;overflow:hidden;cursor:pointer;position:relative;
-    color:#8794a1;font-size:12.5px;text-align:center;padding:8px;
-  }
+  .photo-wrap{grid-column:2;grid-row:1 / span 3;justify-self:end;width:135px;text-align:center;}
+  .photo-box{width:135px;height:160px;border:1.5px dashed var(--line-strong);border-radius:4px;background:var(--shade);
+    display:flex;align-items:center;justify-content:center;overflow:hidden;cursor:pointer;position:relative;
+    color:#8794a1;font-size:12.5px;text-align:center;padding:8px;}
   .photo-box img{width:100%;height:100%;object-fit:cover;}
   .photo-box:hover{border-color:var(--accent-2);}
   .photo-cap{font-size:11px;color:#8794a1;margin-top:6px;}
-  .photo-remove{
-    margin-top:6px;font-size:11.5px;color:var(--danger);background:none;border:none;
-    cursor:pointer;text-decoration:underline;display:none;padding:0;
-  }
+  .photo-remove{margin-top:6px;font-size:11.5px;color:var(--danger);background:none;border:none;cursor:pointer;text-decoration:underline;display:none;padding:0;}
 
   .name-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
-
-  .signline{
-    margin-top:34px;display:flex;justify-content:flex-end;
-  }
-  .signline .sign{
-    width:260px;border-top:1px solid var(--ink);padding-top:6px;
-    text-align:center;font-size:13px;font-weight:600;color:var(--ink-soft);
-  }
+  .signline{margin-top:34px;display:flex;justify-content:flex-end;}
+  .signline .sign{width:260px;border-top:1px solid var(--ink);padding-top:6px;text-align:center;font-size:13px;font-weight:600;color:var(--ink-soft);}
 
   .actions{display:flex;gap:12px;justify-content:flex-end;margin-top:26px;}
-  button.btn{
-    font:inherit;font-weight:700;font-size:14px;padding:11px 26px;border-radius:5px;
-    border:1px solid transparent;cursor:pointer;transition:.15s;
-  }
+  button.btn{font:inherit;font-weight:700;font-size:14px;padding:11px 26px;border-radius:5px;border:1px solid transparent;cursor:pointer;transition:.15s;}
   .btn-primary{background:var(--accent);color:#fff;}
   .btn-primary:hover:not(:disabled){background:var(--accent-2);}
   .btn-primary:disabled{background:#9fb0bf;cursor:not-allowed;}
   .btn-ghost{background:#fff;border-color:var(--line-strong);color:var(--ink-soft);}
   .btn-ghost:hover{background:var(--shade);}
 
-  .toast{
-    position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(120%);
-    background:var(--ok);color:#fff;padding:13px 22px;border-radius:7px;font-weight:600;
-    box-shadow:0 10px 30px -8px rgba(0,0,0,.4);transition:.35s;z-index:50;font-size:14px;
-  }
+  .legend{margin-top:18px;font-size:11px;color:#8794a1;line-height:1.5;border-top:1px dashed var(--line);padding-top:10px;}
+
+  .toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(120%);background:var(--ok);color:#fff;
+    padding:13px 22px;border-radius:7px;font-weight:600;box-shadow:0 10px 30px -8px rgba(0,0,0,.4);transition:.35s;z-index:50;font-size:14px;max-width:90%;}
   .toast.show{transform:translateX(-50%) translateY(0);}
   .toast.err{background:var(--danger);}
 
@@ -164,26 +111,61 @@
     .actions .btn{width:100%;}
     .signline{justify-content:center;}
     .signline .sign{width:100%;}
-    /* 16px inputs prevent iOS auto-zoom on focus */
     input,select{font-size:16px;padding:12px 12px;}
     label{font-size:13px;}
-    button.btn{padding:14px 26px;}
-    .photo-box{width:120px;height:144px;}
-    .photo-wrap{width:120px;}
+    .photo-box,.photo-wrap{width:120px;}
+    .photo-box{height:144px;}
   }
-  @media(max-width:380px){
-    .titles h1{font-size:18px;}
-    .titles .app{font-size:17px;}
-    .head{padding:16px 12px 10px;}
-    .body{padding:14px 12px 20px;}
-  }
-  @media(hover:none){
-    button.btn,select,.photo-box{min-height:44px;} /* comfortable touch targets */
-  }
-  @media print{
-    body{background:#fff;padding:0;}
-    .sheet{box-shadow:none;border:none;}
-    .gate,.actions{display:none;}
+  @media(max-width:380px){ .titles h1{font-size:18px;} .titles .app{font-size:17px;} .head{padding:16px 12px 10px;} .body{padding:14px 12px 20px;} }
+  @media(hover:none){ button.btn,select,.photo-box{min-height:44px;} }
+  @media print{ body{background:#fff;padding:0;} .sheet{box-shadow:none;border:none;} .gate,.actions{display:none;} }
+
+  /* Tabs */
+  .tabbar{display:flex;gap:4px;border-bottom:2px solid var(--accent);padding:0 30px;background:#f3f7fa;flex-wrap:wrap;}
+  .tab{appearance:none;border:1px solid transparent;border-bottom:none;background:transparent;cursor:pointer;
+    font:inherit;font-weight:700;font-size:13.5px;color:var(--ink-soft);padding:13px 18px;border-radius:8px 8px 0 0;margin-top:6px;transition:.15s;}
+  .tab:hover{color:var(--accent-2);background:#e9f1f8;}
+  .tab.active{color:#fff;background:var(--accent);border-color:var(--accent);}
+  .tab .num{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:50%;
+    background:rgba(255,255,255,.25);margin-right:7px;font-size:12px;}
+  .tab:not(.active) .num{background:var(--accent);color:#fff;}
+  .panel{display:none;}
+  .panel.active{display:block;}
+
+  .summary{display:grid;grid-template-columns:1fr 1fr;gap:8px 26px;background:#f3f7fa;border:1px solid var(--line);
+    border-radius:6px;padding:14px 18px;margin-bottom:18px;font-size:13.5px;}
+  .summary .row{display:flex;gap:8px;}
+  .summary .k{font-weight:700;color:var(--ink-soft);min-width:108px;}
+  .summary .v{color:var(--ink);}
+  .summary .miss{color:var(--danger);font-style:italic;}
+  .reload-note{font-size:12px;color:var(--ink-soft);margin:-6px 0 14px;}
+
+  .declaration{font-size:13px;color:var(--ink);line-height:1.6;}
+  .declaration ol{padding-left:20px;margin:10px 0;}
+  .declaration li{margin-bottom:7px;}
+  .accept-row{display:flex;align-items:flex-start;gap:10px;background:#eef6f0;border:1px solid #bfe0cb;
+    border-radius:6px;padding:12px 14px;margin:16px 0;}
+  .accept-row input{width:auto;margin-top:2px;flex:none;}
+  .accept-row label{font-size:13px;color:var(--ink);font-weight:600;}
+
+  .doc-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px;}
+  .doc-table th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--accent);
+    border-bottom:1px solid var(--line);padding:6px 8px;}
+  .doc-table th.c,.doc-table td.c{text-align:center;width:64px;}
+  .doc-table td{padding:7px 8px;border-bottom:1px solid #edf1f4;vertical-align:middle;}
+  .doc-table tr:hover td{background:#f7fafc;}
+  .doc-no{color:var(--ink-soft);width:26px;}
+  .yn{display:inline-flex;gap:4px;}
+  .yn label{display:inline-flex;align-items:center;gap:3px;font-size:12px;font-weight:600;cursor:pointer;color:var(--ink-soft);}
+  .yn input{width:auto;}
+  .other-input{margin-top:6px;}
+  .panel-actions{display:flex;gap:12px;justify-content:flex-end;margin-top:22px;flex-wrap:wrap;}
+  @media(max-width:680px){
+    .tabbar{padding:0 8px;} .tab{flex:1;text-align:center;padding:12px 6px;font-size:12.5px;}
+    .tab .num{display:block;margin:0 auto 3px;}
+    .summary{grid-template-columns:1fr;}
+    .doc-table th.c,.doc-table td.c{width:52px;}
+    .panel-actions{flex-direction:column-reverse;} .panel-actions .btn{width:100%;}
   }
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -198,32 +180,32 @@
       <div class="dept">(Department of Technology)</div>
       <div class="app">Application for Admission</div>
     </div>
-    <div class="formno">Form DOT/01-1</div>
+    <div class="formno" id="formNoLabel">Form DOT/01</div>
+  </div>
+
+  <div class="tabbar">
+    <button type="button" class="tab active" data-tab="admission"><span class="num">1</span>Admission Form</button>
+    <button type="button" class="tab" data-tab="undertaking"><span class="num">2</span>Undertaking</button>
+    <button type="button" class="tab" data-tab="receipt"><span class="num">3</span>Document Receipt</button>
   </div>
 
   <div class="body">
-    <!-- Receipt gate -->
+    <div class="panel active" id="panelAdmission">
     <div class="gate">
       <h3>Fee Receipt Verification</h3>
       <p>Enter the fee receipt date and receipt number to unlock the admission form.</p>
       <div class="row">
-        <div class="fld">
-          <label for="receiptDate">Receipt Date <span class="req">*</span></label>
-          <input type="date" id="receiptDate">
-        </div>
-        <div class="fld">
-          <label for="receiptNo">Receipt Number <span class="req">*</span></label>
-          <input type="text" id="receiptNo" placeholder="e.g. DOT/2026/00123" autocomplete="off">
-        </div>
+        <div class="fld"><label for="receiptDate">Receipt Date <span class="req">*</span></label><input type="date" id="receiptDate"></div>
+        <div class="fld"><label for="receiptNo">Receipt Number <span class="req">*</span></label><input type="text" id="receiptNo" placeholder="e.g. DOT/2026/00123" autocomplete="off"></div>
       </div>
       <div class="gate-status locked" id="gateStatus">&#128274; Form locked &mdash; receipt details required.</div>
     </div>
 
     <form id="admForm" novalidate>
     <fieldset class="main" id="mainFs" disabled>
-      <div class="grid">
 
-        <!-- Photo -->
+      <!-- ===== Common top block ===== -->
+      <div class="grid">
         <div class="photo-wrap">
           <div class="photo-box" id="photoBox">
             <span id="photoPlaceholder">Click to upload<br>Photo<br><small>(max 1 MB)</small></span>
@@ -239,175 +221,240 @@
           <input type="date" id="dateField" readonly>
           <span class="hint">Auto-filled with today's date.</span>
         </div>
-
         <div class="fld">
           <label for="classField">Class <span class="req">*</span></label>
           <select id="classField">
             <option value="">-- Select --</option>
             <option>1st Year</option>
             <option>Direct Second Year</option>
+            <option>2nd Year</option>
+            <option>3rd Year</option>
+            <option>4th Year</option>
           </select>
+          <span class="hint">First Year loads the DOT/01-1 form; Second Year onwards loads DOT/01-B.</span>
         </div>
-
-        <div class="fld">
-          <label for="academicYear">Academic Year</label>
-          <input type="text" id="academicYear" value="2026-27" readonly>
-        </div>
-
-        <div class="fld">
-          <label for="courseField">Course <span class="req">*</span></label>
-          <select id="courseField">
-            <option value="">-- Select --</option>
-            <option>B.Tech.</option>
-            <option>M.Tech.</option>
-          </select>
-        </div>
-
-        <div class="fld">
-          <label for="programmeField">Programme <span class="req">*</span></label>
-          <select id="programmeField" disabled>
-            <option value="">-- Select course first --</option>
-          </select>
-        </div>
-
-        <div class="fld">
-          <label for="casteField">Caste Category <span class="req">*</span></label>
-          <select id="casteField">
-            <option value="">-- Select --</option>
-            <option>Open</option><option>SEBC</option><option>EWS</option>
-            <option>OBC</option><option>SBC</option><option>SC</option>
-            <option>ST</option><option>NT</option><option>VJ-NT</option>
-            <option>Minority</option>
-          </select>
-        </div>
-
-        <div class="fld" id="minorityWrap" style="display:none">
-          <label for="minorityField">Minority <span class="req">*</span></label>
-          <select id="minorityField">
-            <option value="">-- Select --</option>
-            <option>Muslims</option><option>Sikhs</option><option>Christians</option>
-            <option>Buddhists</option><option>Jain</option><option>Zoroastrians (Parsis)</option>
-          </select>
-        </div>
-
-        <!-- Name -->
-        <div class="section-label">Name of Student</div>
-        <div class="span2">
-          <div class="name-grid">
-            <div class="fld">
-              <label for="surname">Surname <span class="req">*</span></label>
-              <input type="text" id="surname" autocomplete="off">
-            </div>
-            <div class="fld">
-              <label for="firstName">First Name <span class="req">*</span></label>
-              <input type="text" id="firstName" autocomplete="off">
-            </div>
-            <div class="fld">
-              <label for="middleName">Middle Name</label>
-              <input type="text" id="middleName" autocomplete="off">
-            </div>
-          </div>
-        </div>
-
-        <!-- Contact -->
-        <div class="section-label">Contact &amp; Identity</div>
-        <div class="fld">
-          <label for="studentMob">Student's Mobile No. <span class="req">*</span></label>
-          <input type="tel" id="studentMob" inputmode="numeric" maxlength="10" placeholder="10-digit number">
-          <span class="err" id="studentMobErr">Enter a valid 10-digit mobile number (starts 6-9).</span>
-        </div>
-        <div class="fld">
-          <label for="fatherMob">Father's Mobile No.</label>
-          <input type="tel" id="fatherMob" inputmode="numeric" maxlength="10" placeholder="10-digit number">
-          <span class="err" id="fatherMobErr">Enter a valid 10-digit mobile number.</span>
-        </div>
-        <div class="fld">
-          <label for="motherMob">Mother's Mobile No.</label>
-          <input type="tel" id="motherMob" inputmode="numeric" maxlength="10" placeholder="10-digit number">
-          <span class="err" id="motherMobErr">Enter a valid 10-digit mobile number.</span>
-        </div>
-        <div class="fld">
-          <label for="aadhaar">Aadhaar No. <span class="req">*</span></label>
-          <input type="tel" id="aadhaar" inputmode="numeric" maxlength="14" placeholder="12-digit Aadhaar">
-          <span class="err" id="aadhaarErr">Aadhaar must be 12 digits.</span>
-        </div>
-        <div class="fld span2">
-          <label for="email">Email <span class="req">*</span></label>
-          <input type="email" id="email" placeholder="name@example.com" autocomplete="off">
-          <span class="err" id="emailErr">Enter a valid email address.</span>
-        </div>
-
-        <div class="fld span2">
-          <label for="abcId">ABC ID <span class="opt">(optional)</span></label>
-          <input type="text" id="abcId" placeholder="Academic Bank of Credits ID" autocomplete="off">
-        </div>
-
-        <!-- Address -->
-        <div class="section-label">Address</div>
-        <div class="fld span2">
-          <label for="address">Address <span class="req">*</span></label>
-          <input type="text" id="address" autocomplete="off">
-        </div>
-        <div class="fld">
-          <label for="stateField">State <span class="req">*</span></label>
-          <select id="stateField">
-            <option value="">-- Select --</option>
-            <option>Maharashtra</option>
-            <option>Other than Maharashtra</option>
-          </select>
-        </div>
-        <div class="fld">
-          <label for="pincode">Pin Code <span class="req">*</span></label>
-          <input type="tel" id="pincode" inputmode="numeric" maxlength="6" placeholder="6-digit">
-          <span class="err" id="pincodeErr">Pin code must be 6 digits.</span>
-        </div>
-        <div class="fld span2" id="univWrap" style="display:none">
-          <label for="univName">Name of University (outside Maharashtra) <span class="req">*</span></label>
-          <input type="text" id="univName" autocomplete="off" placeholder="Enter the university you belong to">
-        </div>
-
-        <!-- Personal -->
-        <div class="section-label">Personal Details</div>
-        <div class="fld">
-          <label for="dob">Date of Birth <span class="req">*</span></label>
-          <input type="date" id="dob">
-        </div>
-        <div class="fld">
-          <label for="placeBirth">Place of Birth <span class="req">*</span></label>
-          <input type="text" id="placeBirth" autocomplete="off">
-        </div>
-        <div class="fld">
-          <label for="motherName">Mother's Name <span class="req">*</span></label>
-          <input type="text" id="motherName" autocomplete="off">
-        </div>
-        <div class="fld">
-          <label for="bloodGroup">Blood Group <span class="req">*</span></label>
-          <select id="bloodGroup">
-            <option value="">-- Select --</option>
-            <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
-            <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
-          </select>
-        </div>
-        <div class="fld">
-          <label for="sexField">Sex <span class="req">*</span></label>
-          <select id="sexField">
-            <option value="">-- Select --</option>
-            <option>Male</option><option>Female</option><option>Transgender</option>
-          </select>
-        </div>
-
       </div>
 
-      <div class="signline">
-        <div class="sign">Signature of Student</div>
+      <div class="pick-hint" id="pickHint">Select a <strong>Class</strong> above to load the relevant application form.</div>
+
+      <!-- =========================================================
+           MODE A: FIRST YEAR  (Form DOT/01-1)
+           ========================================================= -->
+      <div class="mode" id="modeFirst">
+        <div class="grid">
+          <div class="mode-banner">First Year admission &mdash; Form DOT/01-1</div>
+
+          <div class="fld"><label for="f_academicYear">Academic Year</label><input type="text" id="f_academicYear" value="2026-27" readonly></div>
+          <div class="fld"><label for="f_course">Course <span class="req">*</span></label>
+            <select id="f_course"><option value="">-- Select --</option><option>B.Tech.</option><option>M.Tech.</option></select></div>
+          <div class="fld"><label for="f_programme">Programme <span class="req">*</span></label>
+            <select id="f_programme" disabled><option value="">-- Select course first --</option></select></div>
+          <div class="fld"><label for="f_caste">Caste Category <span class="req">*</span></label>
+            <select id="f_caste"><option value="">-- Select --</option>
+              <option>Open</option><option>SEBC</option><option>EWS</option><option>OBC</option><option>SBC</option>
+              <option>SC</option><option>ST</option><option>NT</option><option>VJ-NT</option><option>Minority</option></select></div>
+          <div class="fld" id="f_minorityWrap" style="display:none"><label for="f_minority">Minority <span class="req">*</span></label>
+            <select id="f_minority"><option value="">-- Select --</option>
+              <option>Muslims</option><option>Sikhs</option><option>Christians</option><option>Buddhists</option><option>Jain</option><option>Zoroastrians (Parsis)</option></select></div>
+          <div class="fld"><label for="f_abcId">ABC ID <span class="opt">(optional)</span></label><input type="text" id="f_abcId" autocomplete="off" placeholder="Academic Bank of Credits ID"></div>
+
+          <div class="section-label">Name of Student</div>
+          <div class="span2"><div class="name-grid">
+            <div class="fld"><label for="f_surname">Surname <span class="req">*</span></label><input type="text" id="f_surname" autocomplete="off"></div>
+            <div class="fld"><label for="f_first">First Name <span class="req">*</span></label><input type="text" id="f_first" autocomplete="off"></div>
+            <div class="fld"><label for="f_middle">Middle Name</label><input type="text" id="f_middle" autocomplete="off"></div>
+          </div></div>
+
+          <div class="section-label">Contact &amp; Identity</div>
+          <div class="fld"><label for="f_studentMob">Student's Mobile No. <span class="req">*</span></label>
+            <input type="tel" id="f_studentMob" inputmode="numeric" maxlength="10" placeholder="10-digit number"><span class="err" id="f_studentMobErr">Enter a valid 10-digit mobile number (starts 6-9).</span></div>
+          <div class="fld"><label for="f_fatherMob">Father's Mobile No.</label>
+            <input type="tel" id="f_fatherMob" inputmode="numeric" maxlength="10" placeholder="10-digit number"><span class="err" id="f_fatherMobErr">Enter a valid 10-digit mobile number.</span></div>
+          <div class="fld"><label for="f_motherMob">Mother's Mobile No.</label>
+            <input type="tel" id="f_motherMob" inputmode="numeric" maxlength="10" placeholder="10-digit number"><span class="err" id="f_motherMobErr">Enter a valid 10-digit mobile number.</span></div>
+          <div class="fld"><label for="f_aadhaar">Aadhaar No. <span class="req">*</span></label>
+            <input type="tel" id="f_aadhaar" inputmode="numeric" maxlength="12" placeholder="12-digit Aadhaar"><span class="err" id="f_aadhaarErr">Aadhaar must be 12 digits.</span></div>
+          <div class="fld span2"><label for="f_email">Email <span class="req">*</span></label>
+            <input type="email" id="f_email" placeholder="name@example.com" autocomplete="off"><span class="err" id="f_emailErr">Enter a valid email address.</span></div>
+
+          <div class="section-label">Address</div>
+          <div class="fld span2"><label for="f_address">Address <span class="req">*</span></label><input type="text" id="f_address" autocomplete="off"></div>
+          <div class="fld"><label for="f_state">State <span class="req">*</span></label>
+            <select id="f_state"><option value="">-- Select --</option><option>Maharashtra</option><option>Other than Maharashtra</option></select></div>
+          <div class="fld"><label for="f_pincode">Pin Code <span class="req">*</span></label>
+            <input type="tel" id="f_pincode" inputmode="numeric" maxlength="6" placeholder="6-digit"><span class="err" id="f_pincodeErr">Pin code must be 6 digits.</span></div>
+          <div class="fld span2" id="f_univWrap" style="display:none"><label for="f_univ">Name of University (outside Maharashtra) <span class="req">*</span></label>
+            <input type="text" id="f_univ" autocomplete="off" placeholder="Enter the university you belong to"></div>
+
+          <div class="section-label">Personal Details</div>
+          <div class="fld"><label for="f_dob">Date of Birth <span class="req">*</span></label><input type="date" id="f_dob"></div>
+          <div class="fld"><label for="f_placeBirth">Place of Birth <span class="req">*</span></label><input type="text" id="f_placeBirth" autocomplete="off"></div>
+          <div class="fld span2"><label for="f_motherName">Mother's Name <span class="req">*</span></label><input type="text" id="f_motherName" autocomplete="off"></div>
+          <div class="fld"><label for="f_bloodGroup">Blood Group <span class="req">*</span></label>
+            <select id="f_bloodGroup"><option value="">-- Select --</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></div>
+          <div class="fld"><label for="f_sex">Sex <span class="req">*</span></label>
+            <select id="f_sex"><option value="">-- Select --</option><option>Male</option><option>Female</option><option>Transgender</option></select></div>
+        </div>
       </div>
 
-      <div class="actions">
+      <!-- =========================================================
+           MODE B: SECOND YEAR ONWARDS  (Form DOT/01-B)
+           ========================================================= -->
+      <div class="mode" id="modeSecond">
+        <div class="grid">
+          <div class="mode-banner">Second Year onwards admission &mdash; Form DOT/01-B</div>
+
+          <div class="fld"><label for="s_academicYear">Academic Year <span class="req">*</span></label><input type="text" id="s_academicYear" value="2026-27"></div>
+          <div class="fld"><label for="s_course">Course <span class="req">*</span></label>
+            <select id="s_course"><option value="">-- Select --</option><option>B.Tech.</option><option>M.Tech.</option></select></div>
+          <div class="fld"><label for="s_programme">Programme <span class="req">*</span></label>
+            <select id="s_programme" disabled><option value="">-- Select course first --</option></select></div>
+          <div class="fld"><label for="s_prn">PRN <span class="opt">(if available)</span></label><input type="text" id="s_prn" autocomplete="off" placeholder="Permanent Registration No."></div>
+          <div class="fld"><label for="s_caste">Caste Category <span class="req">*</span></label>
+            <select id="s_caste"><option value="">-- Select --</option>
+              <option>Open</option><option>OBC</option><option>SBC</option><option>SC</option><option>ST</option><option>VJ-NT</option><option>Minority</option></select></div>
+          <div class="fld" id="s_minorityWrap" style="display:none"><label for="s_minority">Minority <span class="req">*</span></label>
+            <select id="s_minority"><option value="">-- Select --</option>
+              <option>Muslims</option><option>Sikhs</option><option>Christians</option><option>Buddhists</option><option>Jain</option><option>Zoroastrians (Parsis)</option></select></div>
+          <div class="fld"><label for="s_abcId">ABC ID <span class="opt">(optional)</span></label><input type="text" id="s_abcId" autocomplete="off" placeholder="Academic Bank of Credits ID"></div>
+
+          <div class="section-label">Name of Student</div>
+          <div class="span2"><div class="name-grid">
+            <div class="fld"><label for="s_surname">Surname <span class="req">*</span></label><input type="text" id="s_surname" autocomplete="off"></div>
+            <div class="fld"><label for="s_first">First Name <span class="req">*</span></label><input type="text" id="s_first" autocomplete="off"></div>
+            <div class="fld"><label for="s_middle">Middle Name</label><input type="text" id="s_middle" autocomplete="off"></div>
+          </div></div>
+
+          <div class="section-label">Contact &amp; Identity</div>
+          <div class="fld"><label for="s_mob1">Mobile No. 1 <span class="req">*</span></label>
+            <input type="tel" id="s_mob1" inputmode="numeric" maxlength="10" placeholder="10-digit number"><span class="err" id="s_mob1Err">Enter a valid 10-digit mobile number (starts 6-9).</span></div>
+          <div class="fld"><label for="s_mob2">Mobile No. 2</label>
+            <input type="tel" id="s_mob2" inputmode="numeric" maxlength="10" placeholder="10-digit number"><span class="err" id="s_mob2Err">Enter a valid 10-digit mobile number.</span></div>
+          <div class="fld"><label for="s_voterId">Voter ID No. <span class="opt">(optional)</span></label>
+            <input type="text" id="s_voterId" autocomplete="off" placeholder="e.g. ABC1234567" maxlength="10" style="text-transform:uppercase"><span class="err" id="s_voterIdErr">Format: 3 letters followed by 7 digits.</span></div>
+          <div class="fld"><label for="s_aadhaar">Aadhaar No. <span class="req">*</span></label>
+            <input type="tel" id="s_aadhaar" inputmode="numeric" maxlength="12" placeholder="12-digit Aadhaar"><span class="err" id="s_aadhaarErr">Aadhaar must be 12 digits.</span></div>
+          <div class="fld span2"><label for="s_parentPhone">Parent's / Guardian's landline / mobile / telephone number</label>
+            <input type="tel" id="s_parentPhone" inputmode="numeric" maxlength="12" placeholder="Phone / landline (with STD code)"><span class="err" id="s_parentPhoneErr">Enter 8 to 12 digits.</span></div>
+          <div class="fld span2"><label for="s_email">Email <span class="req">*</span></label>
+            <input type="email" id="s_email" placeholder="name@example.com" autocomplete="off"><span class="err" id="s_emailErr">Enter a valid email address.</span></div>
+
+          <div class="section-label">Address</div>
+          <div class="fld span2"><label for="s_address">Address <span class="req">*</span></label><input type="text" id="s_address" autocomplete="off"></div>
+          <div class="fld"><label for="s_state">State <span class="req">*</span></label>
+            <select id="s_state"><option value="">-- Select --</option><option>Maharashtra</option><option>Other than Maharashtra</option></select></div>
+          <div class="fld"><label for="s_pincode">Pin Code <span class="req">*</span></label>
+            <input type="tel" id="s_pincode" inputmode="numeric" maxlength="6" placeholder="6-digit"><span class="err" id="s_pincodeErr">Pin code must be 6 digits.</span></div>
+          <div class="fld span2" id="s_univWrap" style="display:none"><label for="s_univ">Name of University (outside Maharashtra) <span class="req">*</span></label>
+            <input type="text" id="s_univ" autocomplete="off" placeholder="Enter the university you belong to"></div>
+
+          <div class="section-label">Personal Details</div>
+          <div class="fld"><label for="s_dob">Date of Birth <span class="req">*</span></label><input type="date" id="s_dob"></div>
+          <div class="fld"><label for="s_placeBirth">Place of Birth <span class="req">*</span></label><input type="text" id="s_placeBirth" autocomplete="off"></div>
+          <div class="fld span2"><label for="s_motherName">Mother's Name <span class="req">*</span></label><input type="text" id="s_motherName" autocomplete="off"></div>
+
+          <div class="section-label">Last Examination Passed</div>
+          <div class="fld"><label for="s_examMonth">Month <span class="req">*</span></label>
+            <select id="s_examMonth"><option value="">-- Select --</option>
+              <option>January</option><option>February</option><option>March</option><option>April</option><option>May</option><option>June</option>
+              <option>July</option><option>August</option><option>September</option><option>October</option><option>November</option><option>December</option></select></div>
+          <div class="fld"><label for="s_examYear">Year <span class="req">*</span></label>
+            <input type="tel" id="s_examYear" inputmode="numeric" maxlength="4" placeholder="YYYY"><span class="err" id="s_examYearErr">Enter a 4-digit year.</span></div>
+          <div class="fld"><label for="s_examName">Name of Exam <span class="req">*</span></label>
+            <select id="s_examName"><option value="">-- Select --</option>
+              <option>HSC</option><option>Diploma</option><option>B.Sc</option><option>BE</option>
+              <option>B.Tech. 1st Yr</option><option>B.Tech. 2nd Yr</option><option>B.Tech. 3rd Yr</option><option>B.Tech. 4th Yr</option></select></div>
+          <div class="fld"><label for="s_examScore">% / Grade / Division <span class="req">*</span></label><input type="text" id="s_examScore" autocomplete="off" placeholder="e.g. 82% / First Class"></div>
+
+          <div class="section-label">Other Details</div>
+          <div class="fld"><label for="s_organDonor">Organ Donor <span class="req">*</span></label>
+            <select id="s_organDonor"><option value="">-- Select --</option><option>Yes</option><option>No</option></select></div>
+          <div class="fld"><label for="s_bloodGroup">Blood Group <span class="req">*</span></label>
+            <select id="s_bloodGroup"><option value="">-- Select --</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>AB+</option><option>AB-</option><option>O+</option><option>O-</option></select></div>
+          <div class="fld"><label for="s_sex">Sex <span class="req">*</span></label>
+            <select id="s_sex"><option value="">-- Select --</option><option>Male</option><option>Female</option><option>Transgender</option></select></div>
+          <div class="fld"><label for="s_maritalStatus">Marital Status <span class="req">*</span></label>
+            <select id="s_maritalStatus"><option value="">-- Select --</option><option>Married</option><option>Unmarried</option></select></div>
+        </div>
+
+        <div class="legend">
+          CE = Civil Engineering &middot; Chem. Engg. = Chemical Engineering &middot; ME = Mechanical Engineering &middot;
+          CST = Computer Science &amp; Technology &middot; E&amp;TC = Electronics &amp; Telecommunication Engineering &middot;
+          FT = Food Technology &middot; EST = Environmental Science &amp; Technology &middot; ET = Energy Technology
+        </div>
+      </div>
+
+      <div class="signline" id="signRow" style="display:none"><div class="sign">Signature of Student</div></div>
+
+      <div class="actions" id="actionRow" style="display:none">
         <button type="button" class="btn btn-ghost" id="resetBtn">Reset</button>
         <button type="submit" class="btn btn-primary" id="submitBtn">Submit Application</button>
       </div>
     </fieldset>
     </form>
+    </div><!-- /panelAdmission -->
+
+    <!-- ===================== UNDERTAKING (Form DOT/9A) ===================== -->
+    <div class="panel" id="panelUndertaking">
+      <div class="summary" id="uSummary"></div>
+      <div class="reload-note">Details above are pulled from the Admission Form tab. Update them there if anything is missing.</div>
+
+      <div class="declaration">
+        <p>I, the undersigned, hereby declare that I have applied for admission to the
+        <strong id="uCourseTxt">B.Tech./M.Tech.</strong> course in
+        <strong id="uProgTxt">(programme)</strong> in the academic year
+        <strong id="uYearTxt">2026-27</strong>, and I undertake the following:</p>
+        <ol>
+          <li>That I have been explained and I understand all relevant rules and regulations which I am required to follow in due course of my admission procedure and academic programme in the Department of Technology, Shivaji University.</li>
+          <li>That the information and supporting documents furnished by me along with my application are true to the best of my knowledge.</li>
+          <li>That I have not been debarred from appearing for any examination held by the Government or any other statutory body.</li>
+          <li>That I will obey the law, rules, regulations, and acts enforced by the Government from time to time and will not do anything in violation of the same whether within the Shivaji University Campus or without.</li>
+          <li>That I fully understand that I may be expelled from the Department of Technology if I fail to maintain good order and discipline as expected of the students of the said department.</li>
+          <li>That I am aware that the fee structure of the Department of Technology is subject to revision from time to time and that I will pay all due fees as charged and on time as laid down from time to time.</li>
+          <li>That I will not request for transfer of my admission to any other institution.</li>
+          <li>That I am fully aware that I will not be eligible to appear for semester examinations until and unless my attendance is not less than 75% for theory classes and not less than 100% for practical sessions as laid down in my academic curriculum.</li>
+          <li>That I am also aware that I will not be eligible to appear for semester examinations unless I have completed all submissions assigned to me as part of my academic curriculum from time to time.</li>
+          <li>That I will not take part or encourage any activity which may result in ragging amounting to the humiliation, physical/mental torture, harassment, or physical harm of my fellow students.</li>
+          <li>That I will treat the faculty and staff of the Shivaji University with utmost respect and courtesy.</li>
+        </ol>
+      </div>
+
+      <div class="grid">
+        <div class="fld"><label for="uDate">Date</label><input type="date" id="uDate" readonly></div>
+        <div class="fld"><label for="uPlace">Place</label><input type="text" id="uPlace" value="Kolhapur"></div>
+        <div class="fld span2"><label for="uGuardian">Parent / Guardian Name <span class="opt">(for countersign)</span></label><input type="text" id="uGuardian" autocomplete="off" placeholder="Parent or guardian's name"></div>
+      </div>
+
+      <div class="accept-row">
+        <input type="checkbox" id="uAccept">
+        <label for="uAccept">I have read and accept all the above declarations, and the information furnished by me is true.</label>
+      </div>
+
+      <div class="panel-actions">
+        <button type="button" class="btn btn-primary" id="uGenerate">Generate Undertaking PDF</button>
+      </div>
+    </div><!-- /panelUndertaking -->
+
+    <!-- ===================== DOCUMENT RECEIPT (Form DOT/9B-1) ===================== -->
+    <div class="panel" id="panelReceipt">
+      <div class="summary" id="rSummary"></div>
+      <div class="reload-note">Header details are pulled from the Admission Form tab. Tick Yes/No for each original document received.</div>
+
+      <table class="doc-table">
+        <thead><tr><th colspan="2">Particulars of Documents Received</th><th class="c">Yes</th><th class="c">No</th></tr></thead>
+        <tbody id="docRows"></tbody>
+      </table>
+
+      <div class="fld span2 other-input" style="margin-top:12px">
+        <label for="rOtherText">Any Other Document &mdash; specify <span class="opt">(optional)</span></label>
+        <input type="text" id="rOtherText" autocomplete="off" placeholder="Name of any other document received">
+      </div>
+
+      <div class="panel-actions">
+        <button type="button" class="btn btn-ghost" id="rAllYes">Mark all Yes</button>
+        <button type="button" class="btn btn-primary" id="rGenerate">Generate Document Receipt PDF</button>
+      </div>
+    </div><!-- /panelReceipt -->
   </div>
 </div>
 
@@ -415,402 +462,633 @@
 
 <script>
 (function(){
-  var PROGRAMMES = {
-    "B.Tech.":[
-      "Computer Science and Technology","Chemical Engineering","Civil Engineering",
-      "Electronics and Telecommunication Engineering","Food Technology","Mechanical Engineering"
-    ],
-    "M.Tech.":[
-      "Computer Science and Technology","Electronics Technology","Energy Technology",
-      "Environment Science and Technology","Food Technology"
-    ]
+  var $=function(id){return document.getElementById(id);};
+  var FORM_LOGO="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCACcAJ8DASIAAhEBAxEB/8QAHQAAAAYDAQAAAAAAAAAAAAAAAAIDBgcIAQQFCf/EAEAQAAEDAwMCAwQJAgQEBwAAAAECAwQFBhEAByESMRNBUQgUIjIXI0JWYXGBldIVUhYzkaE0Q2JyJCVTkrHh8f/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/EABkRAQADAQEAAAAAAAAAAAAAAAACElERE//aAAwDAQACEQMRAD8As/8ARrtz9wLU/Z4/8ND6NdufuBan7PH/AIadehrV5axWOGp9Gu3P3AtT9nj/AMND6NdufuBan7PH/hp16Gl5aUjhqfRrtz9wLU/Z4/8ADQ+jXbn7gWp+zx/4adOdDOpeWtUjhrfRrtz9wLU/Z4/8ND6NdufuBan7PH/hp1aI6801jxHEIz26jjS8tWkcNj6NdufuBan7PH/hofRrtz9wLU/Z4/8ADThlVGBFjKkyZjDTKAVKWpYAAHc6aV27r7fWtKEOsXPAZmKQFpjB0F1QPbCe5z5aXlpSONz6NdufuBan7PH/AIaH0a7c/cC1P2eP/DTKqG/9sxq9BoLduXY7U57ZdixTSnEuPICeoqSnuRgZ1m3PaAtCt0yuVOPTq4iJQ0kz1qhK+qIzkEeoxzpeWpWOHp9Gu3P3AtT9nj/w0Po125+4Fqfs8f8AhqIr19qCgMJpTNnwzPeqL4Ql+fmOwgepUfX89SvtZf8ASr8o7smGptuZEdUxMjJcC/CcSfIjuDwQfQjV9JalI4W+jXbn7gWp+zx/4aH0a7c/cC1P2eP/AA069DS8tSscNT6NdufuBan7PH/hofRrtz9wLU/Z4/8ADTr0NLy0rHDU+jXbn7gWp+zx/wCGh9Gu3P3AtT9nj/w069DS8tKxwNDQ0NZVjOgdDjOs8aKJg51nGjcarv7SV4v0nc2g2/Vr5lWdbz8FyUqTEj9bjzqTgJz0kD8jwceunF6sI+ooYWtJSClJI6jgappadwJ3IvWqUC5KDDrt4OvPBh2pPFFPjRQcdUfglahlJA6QDzyNdGi35e9u3/btVvmr1WZttNdcRS5shttpbuQkBchKAD05BwFjkfnqSfaC29RPoVI3A28jxGa5bYEiEIiUpbfj4+JsBPHI7fhnHfU4IUY2gsWt2Jd7lt1Wqy6ta7jipNSeAbirdb+sWwhrqPGPhycaX3UuNNaRtXe7kOBItpY8JynLJQ3HkI6QS64AcjGCBj11INm7PsX203d8eo1y16JcQD9bt0pUyHXc4WBkBXQsgnOckK9NSvYW0FnWlaT9rNwhVKU9JMn3eekPIQvsClKsgfmNURDfN10mue0jtnVqYl2TGjiRGXPZbPgrWptYKUeZAJxnGNN/ZWiVms0zeuzaez7tUZbrvuzjoKWypzIHOPw/31Pm6Netfb+2G3Y1LphqyEFqiwWo6A4p1XwpDaQMhOTyR5Z1ubSXdbt3UlyXTmosWsN9KKrFS2EPNPYGesYyR6E8aCsUVibJuXZ3a2s2vOpc6l5XNVMDfQ8UNnJQUqOU59ceWnFZptO290NxN1pc1VGpVPl/02E3HH1an/DShZ8P7Z6iePXVjq1ZFt1e6oV0y4RVWYDS2osoOKBaCxg4AOCfzGo2vXZNs2RR6bRVGpv0muGsrak9KTOKnvFW2s8JJIJSCr8M6Di2PvdcE29jbkGiTrvprUduQ/Uo8b3V9kLUQEqZWQCBjv1asMDkZ1DdgU655e6la3FrlIetqkppLUJEB11C1O+EVqKz0E4wDx+embL3ln3sr+t28Jtt0qnzVinViXgQJ/QFJU0+VcISrkJUcYUUjOdEWX0NMXZzcuh7kW8udTnm250VZZnROr4mVjzHqg9wocH14OnyCCMg5GiM6GhrGgSLh8tGbc6hzpIY1hZweNTq9LnPlpNSljWG1nsdLYBGqpEulCVLWoJSkEknyGqw773Bat8052fcMJL9HYmOU23UqHQqZOUlTZdUv/0UEqPA56Qc+WpF9pTc0WHTaVTonxTKpIKXcR/GDcVP+aspAP8Ackf665SqttVdtDpcyzrZpF7f0xgxI1PQG0PMo6TwhD3QMep9M6CMqHTqxZ9DpW398qRfNk1seDCk09vqehSD3bTycgE8Hjz1YPZix51hWo5QJVbfq0dLylRfGTgtNH5Ufjxps+zZtxWLLj1yoVlhint1eb71Ho7CupuEMAfkFnHOMjgc6P7Qu5sq2o3+HLdlMR6vIaLsqa4fgp0YfM6R5qJISkeqs+WgcW4u6NtWP0wX1uTqstsqj02GAp1QHbP9qcjv5arjuL7SdfL0yM9WIlAaBw1DpqfeJgI8lPEhKe/9h1FNIqtV3R3Bi2LZ8iRCj1Jwt1CpunMqej/mOPK7lOMkJJIxjUo2/QdrKL7QsPaJO38KpR2+lL1QmK8R1T/nwR8n4Z0EUyri3NuOmyq/bttVR1uQFNv1Z1JfeJUcEJVwlOc44TriW1uFddlVZkVePUIkuMOhEltRZkpTnOCSClQ58xnnvr09pcCFS4DMCnRGYkVlIQ0yygJQgDsAB2GuJfNiWne0IxLnocOpI6SlCnWgVt/9qjyD+WgqnZ3tM18vx22bgo1UjJICo1TYVFkr8sB4KUkn8eganqzt66DVpTFNr0R63ai+QGkyFhbDpJwkNugAKJ48h31S32wts7b2zvuFAthMpuHLjl1TTxKgggjso9+/6ajyyL+rdsMrpyVN1CivqzJpcsdcd31PScgK9FYyO+g9YVpRKjrbWEuNOpKVDuFAjVS9zNv5dtXO5ast6r07Zhb3vVRIUkoacX8YSg9PCPFKRzn89dH2dd5OlyJFdmvTbXluBnMpzqkUh8/K2ok/EyrnpVngpOQMjNpZ0WNOhPRJbDciO8gocbcT1JWkjBBHmNEVO2rr1Fk0K569QX10un2kpTdErEkBCZbJSCWXwMBwBXVyMHChqVfZDuOo3RtKmpVGQhw+/PIZaCslhoH4UZPOAO2dRVedFS1Uv6bftAcZpDU5TdvWbb2AJqRg+8LAwkJBP2iOc+Q1ItmXLb9t1AVSnWi9baKlPbp9biuOJAhOJSvw1lDZUjCiCMg5yRnQTnrGk1ODGih3U6CHQ/PWM476GdRBsjOlmzxrVzpCsTBDos2UXm2PBYWvxHFdKEYBOSfIaqqv3rfN4Rd1axfFGsmDdVvrdFDYR1eM8rwsqWptsHsesZOMfCNbG242W3huxl2g0OsWpdcRxMqUmCHGgEtrGUKI+AJPykAA862K2i99rX7XrltWSm5mXqc5GmNx3cIbeUvqSsKwfmB545x5alD2bbXrFEtCRUrnprUCt1ObJmOx0gEx0uuqc8PP6jj8NVUmvqTGikj5WkcZPkB6680t/bvqlalyKu+462q5XjJKFfYjIP1TYPmnCs/oNektxMLk0Oaw387jC0p/PGvLHdWIhqHbUlD7jniU1La0rH+WtGApI/U6DoezluBS9s9wk3ZU4MiaY8Z1DLLSgnqWpBTyfTnXYqG7kad7R8Xc6FCfpzBlIcdZWsLUB2VzjH/5qHdDQexdCqsCt0eJVqZIRIhy2kvMuIOQpKhkH/fW7qt/sGXJUantiKTPTU3fdFHwXnmAlhDYOAhC+rKj28h21Y9akoQVrUEpAySfLQVy9uzb1269v2K/Gmw4ztFKnFJfKUeKg90hR7Htx5689demPtL0uHuTs1U6fbtdhuSGFCQhDbqT4xRnKO/HBJ/TXmi+24y+4y6gocbUUqSfIg4I0Dn2xuJVvXO0t3LkGWPd5bPktCj/APIOCD5a9IvZ3uKVXNtmGpshMiXTH3aetzJKnEtLKELVn7SkpBJ/HXl/RY7kqsQ4zKFLcceQkJT3PI16O+yVTXIluXE6UkMLrDzTZJySWlKQr/caDr711akWc/TrzTQnavc5zTqVHZUrxHi53SEjv39M86g+Neb79SuamXBZjlm0aUyl2quTpSg8iWT1tPAOEkp6k9hxzq19xW/ArKoT0lPS/BfD8d0DlCh6f6DVZavXNvbPrldN2XFUtzq5LKYSqe3CKvdwhWelzn1A58sdudBOuzNzt3htxSq01IEkqbLDj3H1i21FtS+P7ikn9dPDBGoI9lCrSZE28IL1ryLaYVPRLiQFg9LTa2kdjj7RyrH/AFannvpxBVAkdtY0sUnsNY6Fempw4SxnURe1tcqre2cqMWOtv3qsFNObQrkqS6QhfSPUJUTqYehWq3e05QmbtuGutTpUttu17Wcq0JptQSgyepeFnI5wAP8ATTim2zbNs21XqZYr/tB3nCrUphstxA4tTbRUOE9Q+FPnxkasFslFYpNtSreF3Srom02a83LlynCp5KiskIVntgcfpqIre2bix9n65BumbDmVud0To9wLcDboykdI5J6ejn8+rUm+zpa9v23YvVQq+i4nJj6nJ1UQ4FCS+CQs8dsHIxqiSlcggjg6pL7TG1yI9wzqQhIjM1F5yo0N/wAEBsvHl2KVgfCVA9Sc4z0YGrQ35uXTaBUUUGkQZFx3G6kqRTIJytKR9pw4PQn8SPXTHui0d4txqFKpVwv2tb0CQoKbbRGckSGcKBSQ4HAAsY7hProPOmLSalKrCaRHgyHZ6nfBEdKCXOvOOnHfOdWn2R9kOtTJser7huogQ0ELFPbWFuO/gojIA/XOp82x2GplsXhEvGsVBFUrsZlTPjIZDaHRggLUnn4wMDII7ZxnU0ZGg59u0Wl29R49Io0NqHBjp6WmW04Ska3JLLchhbDqQptxJSoHzB0poaCsu4vsm0WWl2Xt/XZ9uyTlYjGQtTK1nzzkkfp66p9u3tVe23FSU3c9NdDLi/gmoPW06T59Q7H8Dzr1byNcC+7VoV6W+9QbhityoT2OpB7gjzB8joPObYGyZsuU3cpi+PKLnu9EideFSZJ7rx38NA7k8ZUnXohtdaqLNsen0LxPGkNI65b3UT4r6vicXk88qJP66Ycz2drKdqwqcOo1ymvNthuMIklKExkeYQCk4zxknJ4GlHdvdyrbU2/Zu5EmeywhWKfXWEPIc44HW2EEfnk6CWZ8qPChuzJTqWmGUFbi1dkgdzqD63fNMdhUqr7N25R6pULjnuNOTnI/gJykFSytWAoq48/x1uTt06//AEGtW1V7WTTb4bhrNOgvZdj1NXTwWuxUCcjpzn8dQgu2Np7dLNDui+6+1cvjIclxoEhMeOy+s4UMFJ6CMnPOgmHbSp7kHe6dTr8egtofoyX4kWErLSAHFAn8VEg8nnGpr5BxjUJbM2jY1tbszmLYuaqVqaKQhx/3qUJCUIU4rACscHzxqd/DBGSNE4PgemsY1guJ9dY6x5anVHAGot3p2bhbkT408XDUKJIRGXDkmLyJLCsnw1DI4yo+upQSoHWec6ogO1PZhtH+jQf8ayqjXKqyjocWqYotAZ4CUkdsY10rrbcsmFSNpNpozUCfVFrdceJyKfGJJceGPtZ4SOOSDqa9QjWn7msXdm5r6qNnS6zRZrMdhqZAdDjsdpKUhX1IJWRkZOB5Z0G1VqZB2btunJtthoyZssf1KpzPiceOQVFavVRJxntrubh3pUKJcdqxWn2ojVTe6Ch0A+OrH+WD9k4yc/8ATjz12USrR3WsOSxFlMVGmTm1NOAY62lY7Ed0LH44I1Xmoey3uFVQy1Vd1HpDEJ0Kg9ZcUtoDIByeerB7jQSxQr2rc7ce5qGmoQhIgMrUYLq8JjDoy0vq8wr4SfTJ03PpDky9oUVQ14yJUmpCM0Gl4fcPOUpGc4zjn0B1AdubR1Gd7Q9ZsGfedeZkKiZVVELUlckeEFFJJ+ZPlqf9tPZftmzLoptf/wASVqprp6/FZiyVp8EOf3YA0Dm3yvu49uNrIVRiw2ahWXS3GcXnCELI+JYHn58abNHvO61bgUm2p0mdKanx23lTWyGkJJSFEdIJ9cfprie3XPmsU+0YcRZIcqgW40FY8RICsjR6Imnp30pi3K0Q+GWwiGFYAyyj4SPP/wC9Bii3ld1SiXA61V3oUmnLDpdSfESsB1KOjpOBjCic+oGulaD5ubcmWir1Oe69HjFTbCJBR1fBkKCfUjTf2/qVv1OLc0GmFDbbEV0PpDnUvKX2+e+ndYy4y90mlsUdt1xtDX/jUO4WlK2EcYz8vPbHroOXV76u52zLsm0OsBMukRA9BHSVA9KiFIcSfPtzzqVNirvdvrayiXJJU2qVJjpEkoGB4oGF4HlznTEocKkVCs1ynQ6JUGBJakxHJC2ylLisA4ORg4zwfxOuD7C092HalcsqYpQlUWe4noI+UFRz/udBNm4Fn0276QmLLK2JTC/GhzGjh2M6PlWg+RzqP9oqdRrjgXRQLut2li5GpPgVxSGQBOHPhv8AI+1gn8NbNzXxct1XBUbS2xDDS4H1dQrslvqjxnSM+G2OziwME4yBkZ1s7c7ZzbXvidd9RvKq12fPiCPJTJQ2hs4IKSAhI7YIH56Df2z2es/by5qpXLajux11FlDK2SrKEJTz8P66kPSHjax42p0EUDrKDgc6UONYLfGRpwBsHOl9INd9LjVAxrCkpUkggEEYIPnrOgdBDe5duP2BVHNzbIYDPhkKuCmoB8OawO60gfK4kZ58+OONN72g99KxZ9vUWsWlTolWptdjKVHfS4fESSOFBIB459fTVgnUIcbU2tIUlQwQfMag2gOwtq9w0WTXmgu2Ku6t235j6AURHCcqilXkP7c/26Cj7k6/q3U5NdlQK5LqK3CtuWjqSps9wO2ra+ytuRuxd90s0m8oZi0uHBV0O+5KSt9YIA61lWM4/DVn0BISOnGMcY1nQVV9t+LVn7tsx6DT5EtljxFkNtlQK+cJJHbOuVIv++Fux6xQ9rIrFUjJDbrzrKnnSoISEkcp8hqyG6yKwxbDlboVQESZSczChasNvtoBK21fmnqx6HGoIV7XcZphmsSLLlooLrio/jJksl/xkgFQ8Pr+X4hgnQMu5rl3niUOXMmWlCplNlMeHMlsUNSelKlA5OHSe4047NqW+NYorD1t0hMinOspaRNeHuxcQhPQOkYUR8vcnnU87KtVGoWw5ddbeDku4SmX4CXCtuO0QehseXAPOO+n6lISAlIAAGABoK7Ue3/aK8QxpMyjsw1tHpX7xl1Kz6np5Gm9Btm9dqDUJb0mIusXWv8Ap8ZplfiLXIdWCp7OBgIT1rxj7OrUPvNsMreeWlttCSpSlHAAHnqIbMcXuJuZIvl5hxFCohXDoRVwJCzlLkgD0+dIJ7g50D5sa3ItrWxCo8ZIJaRl5zzddPK1k+eSTru58gNNXc+/7c28txytXBKCEg9LMdBBdfX5JQPX8TwPM6dsZSXYzb3SUhaQoA9xnU4MJbJ74xrPhJx5aMV54Gic57404DkZ0dPynRdGT2OqEUnCtbKe2tY/PrZT20A0DoaYO+wuFqyRUrdqD0R6ny2JUhLRwp5hDiS4jkjunq48+2g6twX3btvXNDoNdlmmuzm+qI/IHQw8rOC2lZ4KxwenvyPXW9edsUS8LffotdholRHhkc4U2ofKtChylQ8iNVrcqtauq7L1rdHiuy7TZiMS5tLuFnw2H3ekhwNLBV4fwJRyAdC0524VtWZatWtytpbl3TP8OBblQy6xHYUhTgCXOFJwlGM9J7jjQSJHc3Q2tV7oYMq/rYQAGFsj/wAxjJ7BJCR9YAOc9Ofx12k70Ut1otRrQvR6f0/8KKI8D1f256cDScbdGs0JSmNxLLnUgB0NidT1e9xDwOSrCVj/ANh06qRf1j1RwiDcVMW4lIUoKWEKAPr1Y0ESbi129q1QpFTu9Jsu1X2VRGqWnDs6oOupKG0H+341JOAAeNQmz7P+6dRZCVW+zFnOlSRLW+z4AilKQlJb6eHMA5PftqyVcqtLn7l9Nx0SmO0gNIZi1ZmpIcGetK0hxsgdI6gBkE84/PUmmu0FpPSazTUBI7GUjgf66CDttrkuq3veqNbUJV0UWjtpivUtxQZn05aOOlOR9ag884zx308Du9OLJQjbK9zM7Bk0t0Jz/wB/TjH4626tce0lvXK5cE2q0purrQUl5vLrgSeT8gPBx/tpt3Zvu4LYm3DYdl1S5adCC1PTllLEYoR85SrlRxg/ZHbQbyqJuHuLNSq7ui1rWTlRpUZ3qlSxxgOuD5U9+EhJ576Ru7c+h2zEatyxaezUFxpDdOW8z/wNNWohCQ84OAc4HTkEnTNvCoXbPkWlKvi8KWihVmclmZSKW50eG2sZQVOd3E8EHKU+Wu1RLWg3xXrntG6oDtLptKdMen0dhPQytn/lyer7asdKh5pyO+NAya6J9AvqVbV6Rqfe923DHSKA9LyiO0HCUlsoBASEkZ6hhRz341LG2Ld3WIY1kXM7LuFktBdPqLEdSvDSOFtuq5AAyOknk88nXWsewwzBpqLyjQKzUKFIIpFQWCp5DQwUEk9lDt59hqQnAMZwNAi382ir6urRk/NoOd9At06yBjQ50bQay+F62EnjSDwwvSyOw0BtalapsOsUmXSqgyHoktlTLyM4ylQwefI89/LW3oaDhuWrRnLOVaUhhyRSVRjGU088palN9sFROT/rrlSbCpsi/wCkXU6vqTR4TkaDE6B4bKllP1ifxwkj8lHTwOhoIRpe012R7/uS4alf1bMGQsP0ttiY6fAVwSC0T0KA7AEHTJo1LoVuezjWb3vKzoddqkuRIkOPPU9tUjCvhSolScpA6c44xnVpNa8iHEkQ1w34zLkZYwppSAUEemO2gpBR26TTdgW2Ju0NWemv0wOCuhttSQFAFLnVnqAGQfy1Ie51m25SLZtR1dBp9MocqKy5U64imCY+lfQk9AR0qPxepGNWZkUyBIpK6S9EaVBcZLKmOnCCgjHTgeWNKIgw0wW4PuzSorSEoQ0pPUkJAwBg+g0FTtsYEKgb/wBFqMOgOJtusQXKRGnSaWiGZLwwsks9KSnhs4UUjOT31Llp2bPNuX5t0/48GkvSH002ShGAGpKPEX0/k44sfpqWHI0ZwtKcjtLLJ6mypAPQcYyPTg6VOgrxN2TXQNj128mLT6tW1KDUqqqZLshqPkkloqHV1DAwkep1KW1k9FTsyC77hVWUw0e6Mv1VookyEN/CHVBXxDqx1fFg86emk3xxoCNHJ0uoZGkGu+l+dAmEc6K4jOl/LRfz0GB30caICdYCidASR3B0o0cjRH/l0Zj5dApoaGhoMHQ0DoaAaGhoaADWdYGs6AaB0NA6DGiPdtH0V35dAg2fi1tDtrVR8w1sH5dAY6xpErVnvoFatB//2Q==";
+  var SHEET_ENDPOINT="https://script.google.com/macros/s/AKfycbwlcDMQiFTDEPh4vFEKC7YNy8c8UVCnVr8oAtFVfF6glFRwfkodNSfmg3DNOqYM8Vay/exec";
+  var PROGRAMMES={
+    "B.Tech.":["Computer Science and Technology","Chemical Engineering","Civil Engineering",
+      "Electronics and Telecommunication Engineering","Food Technology","Mechanical Engineering"],
+    "M.Tech.":["Computer Science and Technology","Electronics Technology","Energy Technology",
+      "Environment Science and Technology","Food Technology"]
   };
 
-  var $ = function(id){ return document.getElementById(id); };
-
-  // ---- Auto date ----
-  function todayISO(){
-    var d = new Date(), m = (d.getMonth()+1), day = d.getDate();
-    return d.getFullYear()+"-"+(m<10?"0"+m:m)+"-"+(day<10?"0"+day:day);
-  }
-  $("dateField").value = todayISO();
+  function todayISO(){var d=new Date(),m=d.getMonth()+1,day=d.getDate();
+    return d.getFullYear()+"-"+(m<10?"0"+m:m)+"-"+(day<10?"0"+day:day);}
+  function fmtDate(s){var m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(s||"");return m?(m[3]+"/"+m[2]+"/"+m[1]):(s||"");}
+  $("dateField").value=todayISO();
 
   // ---- Receipt gate ----
-  var mainFs = $("mainFs");
+  var mainFs=$("mainFs");
   function checkGate(){
-    var ok = $("receiptDate").value && $("receiptNo").value.trim().length>0;
-    mainFs.disabled = !ok;
-    var st = $("gateStatus");
-    if(ok){ st.className="gate-status open"; st.innerHTML="&#9989; Form unlocked &mdash; you may fill in the application."; }
-    else { st.className="gate-status locked"; st.innerHTML="&#128274; Form locked &mdash; receipt details required."; }
+    var ok=$("receiptDate").value && $("receiptNo").value.trim().length>0;
+    mainFs.disabled=!ok;
+    var st=$("gateStatus");
+    if(ok){st.className="gate-status open";st.innerHTML="&#9989; Form unlocked &mdash; choose a Class to begin.";}
+    else{st.className="gate-status locked";st.innerHTML="&#128274; Form locked &mdash; receipt details required.";}
   }
   $("receiptDate").addEventListener("input",checkGate);
   $("receiptNo").addEventListener("input",checkGate);
 
-  // ---- Course -> Programme ----
-  $("courseField").addEventListener("change",function(){
-    var prog = $("programmeField");
-    prog.innerHTML="";
-    var list = PROGRAMMES[this.value];
-    if(!list){
-      prog.disabled=true;
-      prog.innerHTML='<option value="">-- Select course first --</option>';
-      return;
-    }
-    prog.disabled=false;
-    prog.innerHTML='<option value="">-- Select --</option>';
-    list.forEach(function(p){
-      var o=document.createElement("option"); o.textContent=p; prog.appendChild(o);
+  // ---- Course -> Programme (generic) ----
+  function bindProgramme(courseId,progId){
+    $(courseId).addEventListener("change",function(){
+      var prog=$(progId);prog.innerHTML="";var list=PROGRAMMES[this.value];
+      if(!list){prog.disabled=true;prog.innerHTML='<option value="">-- Select course first --</option>';return;}
+      prog.disabled=false;prog.innerHTML='<option value="">-- Select --</option>';
+      list.forEach(function(p){var o=document.createElement("option");o.textContent=p;prog.appendChild(o);});
     });
-  });
-
-  // ---- Caste -> Minority ----
-  $("casteField").addEventListener("change",function(){
-    $("minorityWrap").style.display = (this.value==="Minority") ? "flex":"none";
-    if(this.value!=="Minority") $("minorityField").value="";
-  });
-
-  // ---- State -> University ----
-  $("stateField").addEventListener("change",function(){
-    var show = this.value==="Other than Maharashtra";
-    $("univWrap").style.display = show ? "flex":"none";
-    if(!show) $("univName").value="";
-  });
-
-  // ---- Numeric-only enforcement ----
-  ["studentMob","fatherMob","motherMob","aadhaar","pincode"].forEach(function(id){
-    $(id).addEventListener("input",function(){
-      this.value=this.value.replace(/\D/g,"");
-    });
-  });
-
-  // ---- Validators ----
-  function vMobile(v){ return /^[6-9]\d{9}$/.test(v); }
-  function vEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
-  function vAadhaar(v){ return /^\d{12}$/.test(v); }
-  function vPin(v){ return /^\d{6}$/.test(v); }
-
-  function liveCheck(id,errId,fn,required){
-    var el=$(id), err=$(errId);
-    function run(){
-      var v=el.value.trim();
-      if(v===""){ el.classList.remove("bad","good"); err.classList.remove("show"); return; }
-      if(fn(v)){ el.classList.add("good"); el.classList.remove("bad"); err.classList.remove("show"); }
-      else { el.classList.add("bad"); el.classList.remove("good"); err.classList.add("show"); }
-    }
-    el.addEventListener("blur",run);
-    el.addEventListener("input",function(){ if(el.classList.contains("bad")) run(); });
   }
-  liveCheck("studentMob","studentMobErr",vMobile,true);
-  liveCheck("fatherMob","fatherMobErr",vMobile,false);
-  liveCheck("motherMob","motherMobErr",vMobile,false);
-  liveCheck("aadhaar","aadhaarErr",vAadhaar,true);
-  liveCheck("email","emailErr",vEmail,true);
-  liveCheck("pincode","pincodeErr",vPin,true);
+  bindProgramme("f_course","f_programme");
+  bindProgramme("s_course","s_programme");
 
-  // ---- Photo upload (max 1 MB) ----
-  var photoBox=$("photoBox"), photoInput=$("photoInput"),
-      photoPreview=$("photoPreview"), photoPlaceholder=$("photoPlaceholder"),
-      photoRemove=$("photoRemove");
-  photoBox.addEventListener("click",function(){ if(!mainFs.disabled) photoInput.click(); });
+  // ---- Caste -> Minority (generic) ----
+  function bindMinority(casteId,wrapId,minId){
+    $(casteId).addEventListener("change",function(){
+      $(wrapId).style.display=(this.value==="Minority")?"flex":"none";
+      if(this.value!=="Minority") $(minId).value="";
+    });
+  }
+  bindMinority("f_caste","f_minorityWrap","f_minority");
+  bindMinority("s_caste","s_minorityWrap","s_minority");
+
+  // ---- State -> University (generic) ----
+  function bindState(stateId,wrapId,uId){
+    $(stateId).addEventListener("change",function(){
+      var show=this.value==="Other than Maharashtra";
+      $(wrapId).style.display=show?"flex":"none";
+      if(!show) $(uId).value="";
+    });
+  }
+  bindState("f_state","f_univWrap","f_univ");
+  bindState("s_state","s_univWrap","s_univ");
+
+  // ---- numeric / pattern enforcement ----
+  ["f_studentMob","f_fatherMob","f_motherMob","f_aadhaar","f_pincode",
+   "s_mob1","s_mob2","s_aadhaar","s_pincode","s_parentPhone","s_examYear"].forEach(function(id){
+    $(id).addEventListener("input",function(){this.value=this.value.replace(/\D/g,"");});
+  });
+  $("s_voterId").addEventListener("input",function(){this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,"");});
+
+  // ---- validators ----
+  function vMobile(v){return /^[6-9]\d{9}$/.test(v);}
+  function vEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}
+  function vAadhaar(v){return /^\d{12}$/.test(v);}
+  function vPin(v){return /^\d{6}$/.test(v);}
+  function vVoter(v){return /^[A-Z]{3}\d{7}$/.test(v);}
+  function vParent(v){return /^\d{8,12}$/.test(v);}
+  function vYear(v){return /^\d{4}$/.test(v);}
+
+  function liveCheck(id,errId,fn){
+    var el=$(id),err=$(errId);
+    function run(){var v=el.value.trim();
+      if(v===""){el.classList.remove("bad","good");if(err)err.classList.remove("show");return;}
+      if(fn(v)){el.classList.add("good");el.classList.remove("bad");if(err)err.classList.remove("show");}
+      else{el.classList.add("bad");el.classList.remove("good");if(err)err.classList.add("show");}}
+    el.addEventListener("blur",run);
+    el.addEventListener("input",function(){if(el.classList.contains("bad"))run();});
+  }
+  liveCheck("f_studentMob","f_studentMobErr",vMobile);
+  liveCheck("f_fatherMob","f_fatherMobErr",vMobile);
+  liveCheck("f_motherMob","f_motherMobErr",vMobile);
+  liveCheck("f_aadhaar","f_aadhaarErr",vAadhaar);
+  liveCheck("f_email","f_emailErr",vEmail);
+  liveCheck("f_pincode","f_pincodeErr",vPin);
+  liveCheck("s_mob1","s_mob1Err",vMobile);
+  liveCheck("s_mob2","s_mob2Err",vMobile);
+  liveCheck("s_aadhaar","s_aadhaarErr",vAadhaar);
+  liveCheck("s_email","s_emailErr",vEmail);
+  liveCheck("s_pincode","s_pincodeErr",vPin);
+  liveCheck("s_voterId","s_voterIdErr",vVoter);
+  liveCheck("s_parentPhone","s_parentPhoneErr",vParent);
+  liveCheck("s_examYear","s_examYearErr",vYear);
+
+  // ---- Class -> mode switch ----
+  function currentMode(){var c=$("classField").value;if(!c)return"";return c==="1st Year"?"first":"second";}
+  function applyMode(){
+    var mode=currentMode();
+    $("modeFirst").style.display=(mode==="first")?"block":"none";
+    $("modeSecond").style.display=(mode==="second")?"block":"none";
+    $("pickHint").style.display=mode?"none":"block";
+    $("signRow").style.display=mode?"flex":"none";
+    $("actionRow").style.display=mode?"flex":"none";
+    $("formNoLabel").textContent=mode==="first"?"Form DOT/01-1":(mode==="second"?"Form DOT/01-B":"Form DOT/01");
+  }
+  $("classField").addEventListener("change",applyMode);
+
+  // ---- photo (max 1MB) ----
+  var photoBox=$("photoBox"),photoInput=$("photoInput"),photoPreview=$("photoPreview"),
+      photoPlaceholder=$("photoPlaceholder"),photoRemove=$("photoRemove");
+  photoBox.addEventListener("click",function(){if(!mainFs.disabled)photoInput.click();});
   photoInput.addEventListener("change",function(){
-    var f=this.files[0]; if(!f) return;
-    if(!/^image\//.test(f.type)){ showToast("Please select an image file.",true); this.value=""; return; }
-    if(f.size > 1024*1024){
-      showToast("Photo exceeds 1 MB. Please choose a smaller image.",true);
-      this.value=""; return;
-    }
+    var f=this.files[0];if(!f)return;
+    if(!/^image\//.test(f.type)){showToast("Please select an image file.",true);this.value="";return;}
+    if(f.size>1024*1024){showToast("Photo exceeds 1 MB. Please choose a smaller image.",true);this.value="";return;}
     var r=new FileReader();
-    r.onload=function(e){
-      photoPreview.src=e.target.result;
-      photoPreview.style.display="block";
-      photoPlaceholder.style.display="none";
-      photoRemove.style.display="inline";
-    };
+    r.onload=function(e){photoPreview.src=e.target.result;photoPreview.style.display="block";
+      photoPlaceholder.style.display="none";photoRemove.style.display="inline";};
     r.readAsDataURL(f);
   });
   photoRemove.addEventListener("click",function(){
-    photoInput.value=""; photoPreview.src=""; photoPreview.style.display="none";
-    photoPlaceholder.style.display="block"; this.style.display="none";
-  });
+    photoInput.value="";photoPreview.src="";photoPreview.style.display="none";
+    photoPlaceholder.style.display="block";this.style.display="none";});
 
-  // ---- Toast ----
+  // ---- toast ----
   var toastTimer;
-  function showToast(msg,isErr){
-    var t=$("toast"); t.textContent=msg;
-    t.className="toast show"+(isErr?" err":"");
-    clearTimeout(toastTimer);
-    toastTimer=setTimeout(function(){ t.className="toast"+(isErr?" err":""); },3200);
+  function showToast(msg,isErr){var t=$("toast");t.textContent=msg;t.className="toast show"+(isErr?" err":"");
+    clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.className="toast"+(isErr?" err":"");},3600);}
+
+  function photoData(){return (photoPreview.src && photoPreview.style.display!=="none")?photoPreview.src:"";}
+  function nameOf(sur,first,mid){return [$(sur).value,$(first).value,$(mid).value].filter(function(s){return s.trim();}).join(" ");}
+
+  // ---- collect (per mode) ----
+  function collectFirst(){
+    var caste=$("f_caste").value; if(caste==="Minority") caste+=" - "+$("f_minority").value;
+    var state=$("f_state").value; if(state==="Other than Maharashtra" && $("f_univ").value.trim()) state+=" (University: "+$("f_univ").value.trim()+")";
+    return {
+      "Form Type":"DOT/01-1 (First Year)","Receipt Date":$("receiptDate").value,"Receipt No":$("receiptNo").value,
+      "Application Date":$("dateField").value,"Class":$("classField").value,"Academic Year":$("f_academicYear").value,
+      "Course":$("f_course").value,"Programme":$("f_programme").value,"Caste":caste,"ABC ID":$("f_abcId").value,
+      "Full Name":nameOf("f_surname","f_first","f_middle"),
+      "Student Mobile":$("f_studentMob").value,"Father Mobile":$("f_fatherMob").value,"Mother Mobile":$("f_motherMob").value,
+      "Aadhaar No":$("f_aadhaar").value,"Email":$("f_email").value,"Address":$("f_address").value,"State":state,
+      "Pin Code":$("f_pincode").value,"Date of Birth":$("f_dob").value,"Place of Birth":$("f_placeBirth").value,
+      "Mother Name":$("f_motherName").value,"Blood Group":$("f_bloodGroup").value,"Sex":$("f_sex").value,"_photo":photoData()
+    };
+  }
+  function collectSecond(){
+    var caste=$("s_caste").value; if(caste==="Minority") caste+=" - "+$("s_minority").value;
+    var state=$("s_state").value; if(state==="Other than Maharashtra" && $("s_univ").value.trim()) state+=" (University: "+$("s_univ").value.trim()+")";
+    return {
+      "Form Type":"DOT/01-B (Second Year onwards)","Receipt Date":$("receiptDate").value,"Receipt No":$("receiptNo").value,
+      "Application Date":$("dateField").value,"Class":$("classField").value,"Academic Year":$("s_academicYear").value,
+      "Course":$("s_course").value,"Programme":$("s_programme").value,"PRN":$("s_prn").value,"Caste":caste,"ABC ID":$("s_abcId").value,
+      "Full Name":nameOf("s_surname","s_first","s_middle"),
+      "Mobile 1":$("s_mob1").value,"Mobile 2":$("s_mob2").value,"Voter ID":$("s_voterId").value,"Aadhaar No":$("s_aadhaar").value,
+      "Parent/Guardian Phone":$("s_parentPhone").value,"Email":$("s_email").value,"Address":$("s_address").value,"State":state,
+      "Pin Code":$("s_pincode").value,"Date of Birth":$("s_dob").value,"Place of Birth":$("s_placeBirth").value,"Mother Name":$("s_motherName").value,
+      "Exam Month":$("s_examMonth").value,"Exam Year":$("s_examYear").value,"Name of Exam":$("s_examName").value,"Score":$("s_examScore").value,
+      "Organ Donor":$("s_organDonor").value,"Blood Group":$("s_bloodGroup").value,"Sex":$("s_sex").value,"Marital Status":$("s_maritalStatus").value,"_photo":photoData()
+    };
   }
 
-  // ---- Submit ----
-  function markErr(el,err,bad){
-    if(bad){ el.classList.add("bad"); if(err) err.classList.add("show"); }
-    else { el.classList.remove("bad"); if(err) err.classList.remove("show"); }
+  // ===== PDF (LaTeX-style, ruled lines, no boxes) =====
+  function startDoc(){
+    var jsPDF=window.jspdf.jsPDF;
+    var doc=new jsPDF({unit:"pt",format:"a4"});
+    doc._W=doc.internal.pageSize.getWidth();
+    return doc;
+  }
+  var INK=[25,30,40], RULE=[120,128,138];
+  function fld(doc,label,val,x,y,endX,bold){
+    doc.setFont("times", bold===false?"normal":"bold"); doc.setFontSize(10.5);
+    doc.setTextColor(INK[0],INK[1],INK[2]); doc.text(label,x,y);
+    var lx=x+doc.getTextWidth(label)+5;
+    doc.setFont("times","normal"); doc.setTextColor(0,0,0);
+    if(val!=null&&val!==""){
+      var avail=endX-(lx+2), fsz=10.5; doc.setFontSize(fsz);
+      while(doc.getTextWidth(String(val))>avail && fsz>7){fsz-=0.5;doc.setFontSize(fsz);}
+      doc.text(String(val),lx+2,y-1.5); doc.setFontSize(10.5);
+    }
+    doc.setDrawColor(RULE[0],RULE[1],RULE[2]); doc.setLineWidth(0.4); doc.line(lx,y+2,endX,y+2);
+    return lx;
+  }
+  function drawHeader(doc,formNo){
+    var W=doc._W,M=50,RIGHT=W-M;
+    doc.setFont("times","bold"); doc.setFontSize(11.5); doc.setTextColor(INK[0],INK[1],INK[2]);
+    doc.text(formNo,RIGHT,60,{align:"right"});
+    var fnW=doc.getTextWidth(formNo);
+    doc.setLineWidth(0.6); doc.setDrawColor(INK[0],INK[1],INK[2]); doc.line(RIGHT-fnW,63,RIGHT,63);
+    try{doc.addImage(FORM_LOGO,"JPEG",M,150,46,46);}catch(e){}
+    var tx=M+56; doc.setTextColor(INK[0],INK[1],INK[2]);
+    doc.setFont("times","bold"); doc.setFontSize(13.5); doc.text("Shivaji University, Kolhapur",tx,162);
+    doc.setFontSize(11.5); doc.text("School of Engineering & Technology",tx,178);
+    doc.setFont("times","normal"); doc.setFontSize(11); doc.text("(Department of Technology)",tx,192);
+    doc.setFont("times","bold"); doc.setFontSize(15.5); doc.text("Application for Admission",tx,213);
+  }
+  function drawPhoto(doc,d){
+    var W=doc._W,M=50,RIGHT=W-M,pbW=88,pbH=104,pbX=RIGHT-pbW,pbY=78;
+    if(d._photo){
+      try{doc.addImage(d._photo,"JPEG",pbX,pbY,pbW,pbH);}catch(e){try{doc.addImage(d._photo,"PNG",pbX,pbY,pbW,pbH);}catch(e2){}}
+      doc.setDrawColor(190,196,204); doc.setLineWidth(0.4); doc.rect(pbX,pbY,pbW,pbH);
+    }else{
+      doc.setFont("times","italic"); doc.setFontSize(9.5); doc.setTextColor(150,156,164);
+      doc.text("Affix Photo",pbX+pbW/2,pbY+pbH/2,{align:"center"});
+    }
+  }
+  function addressBlock(doc,val,M,RIGHT,yLabel,rule1,rule2){
+    doc.setFont("times","bold"); doc.setFontSize(10.5); doc.setTextColor(INK[0],INK[1],INK[2]);
+    doc.text("Address :",M,yLabel);
+    var ax=M+doc.getTextWidth("Address :")+5;
+    doc.setFont("times","normal"); doc.setTextColor(0,0,0);
+    var aFull=String(val||""); var first=doc.splitTextToSize(aFull,RIGHT-ax)[0]||"";
+    doc.text(first,ax+2,yLabel-1.5);
+    doc.setDrawColor(RULE[0],RULE[1],RULE[2]); doc.setLineWidth(0.4); doc.line(ax,rule1,RIGHT,rule1);
+    var rest=aFull.substring(first.length).trim();
+    doc.line(M,rule2,RIGHT,rule2);
+    if(rest) doc.text(doc.splitTextToSize(rest,RIGHT-M)[0],M+2,rule2-3.5);
+  }
+
+  function pdfFirst(d){
+    var doc=startDoc(),W=doc._W,M=50,RIGHT=W-M;
+    drawHeader(doc,"Form DOT/01-1"); drawPhoto(doc,d);
+    fld(doc,"Date :",fmtDate(d["Application Date"]),395,236,RIGHT);
+    doc.setFont("times","normal"); doc.setFontSize(10.5); doc.setTextColor(INK[0],INK[1],INK[2]);
+    doc.text("Requesting for admission to academic course,",M,257);
+    fld(doc,"Class :",d["Class"],M,279,250);
+    fld(doc,"Academic Year :",d["Academic Year"],320,279,RIGHT);
+    fld(doc,"Course :",d["Course"],M,301,250);
+    fld(doc,"Programme :",d["Programme"],320,301,RIGHT);
+    fld(doc,"Caste :",d["Caste"],M,323,RIGHT);
+    fld(doc,"Name :",d["Full Name"],M,350,RIGHT);
+    fld(doc,"Student's Mob. No. :",d["Student Mobile"],M,377,290);
+    fld(doc,"Father's Mob. No. :",d["Father Mobile"],320,377,RIGHT);
+    fld(doc,"Mother's Mob. No. :",d["Mother Mobile"],M,399,290);
+    fld(doc,"Aadhaar No. :",d["Aadhaar No"],320,399,RIGHT);
+    fld(doc,"Email :",d["Email"],M,421,290);
+    fld(doc,"ABC ID :",d["ABC ID"],320,421,RIGHT);
+    addressBlock(doc,d["Address"],M,RIGHT,447,451,471);
+    fld(doc,"State :",d["State"],M,495,295);
+    fld(doc,"Pin Code :",d["Pin Code"],330,495,RIGHT);
+    doc.setDrawColor(INK[0],INK[1],INK[2]); doc.setLineWidth(1.1); doc.line(M,513,RIGHT,513);
+    fld(doc,"Date of birth :",fmtDate(d["Date of Birth"]),M,539,300);
+    fld(doc,"Place of birth :",d["Place of Birth"],325,539,RIGHT);
+    fld(doc,"Mother Name :",d["Mother Name"],M,561,RIGHT);
+    fld(doc,"Blood Group :",d["Blood Group"],M,583,250);
+    fld(doc,"Sex :",d["Sex"],325,583,RIGHT);
+    doc.setFont("times","normal"); doc.setFontSize(11); doc.setTextColor(INK[0],INK[1],INK[2]);
+    doc.text("Signature of Student",RIGHT,690,{align:"right"});
+    doc.setDrawColor(INK[0],INK[1],INK[2]); doc.setLineWidth(0.9); doc.line(M,718,RIGHT,718);
+    save(doc,d);
+  }
+
+  function pdfSecond(d){
+    var doc=startDoc(),W=doc._W,M=50,RIGHT=W-M;
+    drawHeader(doc,"Form DOT/01-B"); drawPhoto(doc,d);
+    fld(doc,"Date :",fmtDate(d["Application Date"]),395,236,RIGHT);
+    doc.setFont("times","normal"); doc.setFontSize(10.5); doc.setTextColor(INK[0],INK[1],INK[2]);
+    doc.text("Requesting for admission to academic course,",M,257);
+    fld(doc,"Class :",d["Class"],M,279,250);
+    fld(doc,"Academic Year :",d["Academic Year"],320,279,RIGHT);
+    fld(doc,"Course :",d["Course"],M,301,250);
+    fld(doc,"Programme :",d["Programme"],320,301,RIGHT);
+    fld(doc,"PRN :",d["PRN"],M,323,250);
+    fld(doc,"Caste :",d["Caste"],320,323,RIGHT);
+    fld(doc,"ABC ID :",d["ABC ID"],M,345,250);
+    fld(doc,"Name :",d["Full Name"],M,372,RIGHT);
+    fld(doc,"Mob. No. 1 :",d["Mobile 1"],M,398,290);
+    fld(doc,"Mob. No. 2 :",d["Mobile 2"],320,398,RIGHT);
+    fld(doc,"Voter ID No. :",d["Voter ID"],M,420,290);
+    fld(doc,"Aadhaar :",d["Aadhaar No"],320,420,RIGHT);
+    fld(doc,"Parent's / Guardian's phone :",d["Parent/Guardian Phone"],M,442,RIGHT);
+    fld(doc,"Email :",d["Email"],M,464,RIGHT);
+    addressBlock(doc,d["Address"],M,RIGHT,488,492,512);
+    fld(doc,"State :",d["State"],M,536,295);
+    fld(doc,"Pin :",d["Pin Code"],330,536,RIGHT);
+    doc.setDrawColor(INK[0],INK[1],INK[2]); doc.setLineWidth(1.1); doc.line(M,554,RIGHT,554);
+    fld(doc,"Date of birth :",fmtDate(d["Date of Birth"]),M,580,300);
+    fld(doc,"Place of birth :",d["Place of Birth"],325,580,RIGHT);
+    fld(doc,"Mother Name :",d["Mother Name"],M,602,RIGHT);
+    fld(doc,"Last exam - Month :",d["Exam Month"],M,624,300);
+    fld(doc,"Year :",d["Exam Year"],325,624,RIGHT);
+    fld(doc,"Name of Exam :",d["Name of Exam"],M,646,300);
+    fld(doc,"% / Grade / Division :",d["Score"],325,646,RIGHT);
+    fld(doc,"Organ donor :",d["Organ Donor"],M,668,250);
+    fld(doc,"Blood Group :",d["Blood Group"],325,668,RIGHT);
+    fld(doc,"Sex :",d["Sex"],M,690,250);
+    fld(doc,"Marital Status :",d["Marital Status"],325,690,RIGHT);
+    doc.setFont("times","normal"); doc.setFontSize(11); doc.setTextColor(INK[0],INK[1],INK[2]);
+    doc.text("Signature of Student",RIGHT,724,{align:"right"});
+    doc.setDrawColor(INK[0],INK[1],INK[2]); doc.setLineWidth(0.9); doc.line(M,748,RIGHT,748);
+    doc.setFont("times","italic"); doc.setFontSize(8.2); doc.setTextColor(110,116,124);
+    var legend="CE: Civil Engg., Chem. Engg.: Chemical Engg., ME: Mechanical Engg., CST: Comp. Sci. & Tech., "+
+      "E&TC: Electronics & Telecommunication Engg., FT: Food Technology, EST: Environmental Sci. & Tech., ET: Energy Technology";
+    doc.text(doc.splitTextToSize(legend,RIGHT-M),M,764);
+    save(doc,d);
+  }
+
+  function save(doc,d){
+    var tag=(d["Form Type"]||"").indexOf("01-1")>=0?"DOT01_1":"DOT01B";
+    var fname=(d["Full Name"]||"admission").replace(/[^a-z0-9]+/gi,"_");
+    doc.save("Admission_"+tag+"_"+fname+".pdf");
+  }
+  function generatePDF(d,mode){
+    try{ if(mode==="first") pdfFirst(d); else pdfSecond(d); }
+    catch(err){console.error(err);showToast("Could not generate PDF (library not loaded).",true);}
+  }
+
+  // ---- Google Sheet ----
+  function saveToSheet(d){
+    if(!SHEET_ENDPOINT){showToast("\u2705 PDF generated. (Add Sheet URL in code to enable Google Sheet save.)");return;}
+    var payload={};for(var k in d){if(k!=="_photo")payload[k]=d[k];}
+    fetch(SHEET_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)})
+      .then(function(){showToast("\u2705 Application submitted \u2014 PDF generated & saved to Google Sheet.");})
+      .catch(function(){showToast("PDF generated, but saving to Google Sheet failed.",true);});
+  }
+
+  // ---- submit ----
+  function markErr(el,err,bad){if(bad){el.classList.add("bad");if(err)err.classList.add("show");}else{el.classList.remove("bad");if(err)err.classList.remove("show");}}
+  function validate(required,checks){
+    var problems=[];
+    required.forEach(function(f){var el=$(f[0]);var empty=!el.value.trim();markErr(el,null,empty);if(empty)problems.push(f[1]);});
+    checks.forEach(function(c){var el=$(c[0]),v=el.value.trim();
+      if(v===""){if(c[4]){markErr(el,$(c[1]),true);problems.push(c[3]);}return;}
+      if(!c[2](v)){markErr(el,$(c[1]),true);problems.push(c[3]);}});
+    return problems;
   }
 
   $("admForm").addEventListener("submit",function(ev){
     ev.preventDefault();
-    if(mainFs.disabled){ showToast("Enter receipt details to unlock the form.",true); return; }
-    var problems=[];
+    if(mainFs.disabled){showToast("Enter receipt details to unlock the form.",true);return;}
+    var mode=currentMode();
+    if(!mode){showToast("Please select a Class first.",true);return;}
+    var problems,d;
 
-    // required selects/inputs
-    var requiredFields=[
-      ["classField",null,"Class"],["courseField",null,"Course"],
-      ["programmeField",null,"Programme"],["casteField",null,"Caste"],
-      ["surname",null,"Surname"],["firstName",null,"First Name"],
-      ["address",null,"Address"],["stateField",null,"State"],
-      ["placeBirth",null,"Place of Birth"],["motherName",null,"Mother's Name"],
-      ["dob",null,"Date of Birth"],["bloodGroup",null,"Blood Group"],["sexField",null,"Sex"]
-    ];
-    requiredFields.forEach(function(f){
-      var el=$(f[0]); var empty=!el.value.trim();
-      markErr(el,null,empty); if(empty) problems.push(f[2]);
-    });
-
-    if($("casteField").value==="Minority" && !$("minorityField").value){
-      markErr($("minorityField"),null,true); problems.push("Minority");
+    if(mode==="first"){
+      problems=validate(
+        [["f_course","Course"],["f_programme","Programme"],["f_caste","Caste"],["f_surname","Surname"],["f_first","First Name"],
+         ["f_address","Address"],["f_state","State"],["f_placeBirth","Place of Birth"],["f_motherName","Mother's Name"],
+         ["f_dob","Date of Birth"],["f_bloodGroup","Blood Group"],["f_sex","Sex"]],
+        [["f_studentMob","f_studentMobErr",vMobile,"Student Mobile",true],
+         ["f_fatherMob","f_fatherMobErr",vMobile,"Father Mobile",false],
+         ["f_motherMob","f_motherMobErr",vMobile,"Mother Mobile",false],
+         ["f_aadhaar","f_aadhaarErr",vAadhaar,"Aadhaar",true],
+         ["f_email","f_emailErr",vEmail,"Email",true],
+         ["f_pincode","f_pincodeErr",vPin,"Pin Code",true]]);
+      if($("f_caste").value==="Minority"&&!$("f_minority").value){markErr($("f_minority"),null,true);problems.push("Minority");}
+      if($("f_state").value==="Other than Maharashtra"&&!$("f_univ").value.trim()){markErr($("f_univ"),null,true);problems.push("University Name");}
+    } else {
+      problems=validate(
+        [["s_academicYear","Academic Year"],["s_course","Course"],["s_programme","Programme"],["s_caste","Caste"],
+         ["s_surname","Surname"],["s_first","First Name"],["s_address","Address"],["s_state","State"],
+         ["s_placeBirth","Place of Birth"],["s_motherName","Mother's Name"],["s_dob","Date of Birth"],
+         ["s_examMonth","Exam Month"],["s_examName","Name of Exam"],["s_examScore","Score"],
+         ["s_organDonor","Organ Donor"],["s_bloodGroup","Blood Group"],["s_sex","Sex"],["s_maritalStatus","Marital Status"]],
+        [["s_mob1","s_mob1Err",vMobile,"Mobile 1",true],
+         ["s_mob2","s_mob2Err",vMobile,"Mobile 2",false],
+         ["s_aadhaar","s_aadhaarErr",vAadhaar,"Aadhaar",true],
+         ["s_email","s_emailErr",vEmail,"Email",true],
+         ["s_pincode","s_pincodeErr",vPin,"Pin Code",true],
+         ["s_voterId","s_voterIdErr",vVoter,"Voter ID",false],
+         ["s_parentPhone","s_parentPhoneErr",vParent,"Parent Phone",false],
+         ["s_examYear","s_examYearErr",vYear,"Exam Year",true]]);
+      if($("s_caste").value==="Minority"&&!$("s_minority").value){markErr($("s_minority"),null,true);problems.push("Minority");}
+      if($("s_state").value==="Other than Maharashtra"&&!$("s_univ").value.trim()){markErr($("s_univ"),null,true);problems.push("University Name");}
     }
-    if($("stateField").value==="Other than Maharashtra" && !$("univName").value.trim()){
-      markErr($("univName"),null,true); problems.push("University Name");
-    }
-
-    // validated fields
-    function check(id,err,fn,name,req){
-      var el=$(id),v=el.value.trim();
-      if(v===""){ if(req){ markErr(el,$(err),true); problems.push(name);} return; }
-      if(!fn(v)){ markErr(el,$(err),true); problems.push(name); }
-    }
-    check("studentMob","studentMobErr",vMobile,"Student Mobile",true);
-    check("fatherMob","fatherMobErr",vMobile,"Father Mobile",false);
-    check("motherMob","motherMobErr",vMobile,"Mother Mobile",false);
-    check("aadhaar","aadhaarErr",vAadhaar,"Aadhaar",true);
-    check("email","emailErr",vEmail,"Email",true);
-    check("pincode","pincodeErr",vPin,"Pin Code",true);
 
     if(problems.length){
       showToast(problems.length+" field(s) need attention: "+problems.slice(0,4).join(", ")+(problems.length>4?"…":""),true);
-      var first=document.querySelector(".bad"); if(first) first.scrollIntoView({behavior:"smooth",block:"center"});
+      var firstBad=document.querySelector(".mode[style*='block'] .bad")||document.querySelector(".bad");
+      if(firstBad)firstBad.scrollIntoView({behavior:"smooth",block:"center"});
       return;
     }
-    // ---- Gather data ----
-    var data = collectData();
-    generatePDF(data);
-    saveToSheet(data);
+    d=(mode==="first")?collectFirst():collectSecond();
+    generatePDF(d,mode);
+    saveToSheet(d);
   });
 
-  // ---- Collect all field values ----
-  function collectData(){
-    var fullName = [$("surname").value, $("firstName").value, $("middleName").value]
-                   .filter(function(s){return s.trim();}).join(" ");
-    var caste = $("casteField").value;
-    if(caste==="Minority") caste += " - "+$("minorityField").value;
-    var state = $("stateField").value;
-    if(state==="Other than Maharashtra" && $("univName").value.trim())
-      state += " (University: "+$("univName").value.trim()+")";
+  // ---- reset ----
+  $("resetBtn").addEventListener("click",function(){
+    $("admForm").reset();$("dateField").value=todayISO();
+    $("f_academicYear").value="2026-27";$("s_academicYear").value="2026-27";
+    ["f_programme","s_programme"].forEach(function(id){$(id).disabled=true;$(id).innerHTML='<option value="">-- Select course first --</option>';});
+    ["f_minorityWrap","s_minorityWrap","f_univWrap","s_univWrap"].forEach(function(id){$(id).style.display="none";});
+    document.querySelectorAll(".bad,.good").forEach(function(e){e.classList.remove("bad","good");});
+    document.querySelectorAll(".err.show").forEach(function(e){e.classList.remove("show");});
+    photoInput.value="";photoPreview.style.display="none";photoPlaceholder.style.display="block";photoRemove.style.display="none";
+    applyMode();
+  });
+
+  // ============================================================
+  //  TABS + UNDERTAKING (DOT/9A) + DOCUMENT RECEIPT (DOT/9B-1)
+  // ============================================================
+  var DOCS=[
+    "CAP Allotment Letter (Copy)","JEE Score Card","SSC Mark Sheet","SSC Certificate",
+    "HSC Mark Sheet","HSC Certificate","Diploma Certificate (Final)","Leaving Certificate",
+    "Nationality Certificate","Domicile Certificate","Caste Certificate","Caste Validity Certificate",
+    "Non-creamy Layer Certificate","Defence Personnel Certificate","Education Gap Certificate",
+    "Income Certificate","EWS Certificate","Birth Certificate","Any Other Document"
+  ];
+
+  // Live read of admission details from the active mode
+  function admissionInfo(){
+    var mode=currentMode(), p="";
+    if(mode==="first") p="f_"; else if(mode==="second") p="s_"; else p="";
+    function g(id){return p?($(p+id)?$(p+id).value:""):"";}
+    var name = p ? nameOf(p+"surname",p+"first",p+"middle") : "";
+    var caste = p ? $(p+"caste").value : "";
+    if(caste==="Minority") caste += " - "+$(p+"minority").value;
     return {
-      "Receipt Date": $("receiptDate").value,
-      "Receipt No": $("receiptNo").value,
-      "Application Date": $("dateField").value,
-      "Class": $("classField").value,
-      "Academic Year": $("academicYear").value,
-      "Course": $("courseField").value,
-      "Programme": $("programmeField").value,
+      mode:mode,
+      "Class":$("classField").value,
+      "Academic Year": g("academicYear"),
+      "Course": g("course"),
+      "Programme": g("programme"),
       "Caste": caste,
-      "Surname": $("surname").value,
-      "First Name": $("firstName").value,
-      "Middle Name": $("middleName").value,
-      "Full Name": fullName,
-      "Student Mobile": $("studentMob").value,
-      "Father Mobile": $("fatherMob").value,
-      "Mother Mobile": $("motherMob").value,
-      "Aadhaar No": $("aadhaar").value,
-      "Email": $("email").value,
-      "ABC ID": $("abcId").value,
-      "Address": $("address").value,
-      "State": state,
-      "Pin Code": $("pincode").value,
-      "Date of Birth": $("dob").value,
-      "Place of Birth": $("placeBirth").value,
-      "Mother Name": $("motherName").value,
-      "Blood Group": $("bloodGroup").value,
-      "Sex": $("sexField").value,
-      "_photo": (photoPreview.src && photoPreview.style.display!=="none") ? photoPreview.src : ""
+      "Name": name
     };
   }
 
-  // ---- PDF generation: replicates the official paper form layout ----
-  var FORM_LOGO = "data:image/jpeg;base64,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";
-
-  function fmtDate(s){
-    if(!s) return "";
-    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
-    return m ? (m[3]+"/"+m[2]+"/"+m[1]) : s;
+  function row(k,v){return '<div class="row"><span class="k">'+k+':</span><span class="v'+(v?'':' miss')+'">'+(v||'— not filled —')+'</span></div>';}
+  function renderSummaries(){
+    var a=admissionInfo();
+    var html=row("Name",a["Name"])+row("Class",a["Class"])+row("Academic Year",a["Academic Year"])
+      +row("Course",a["Course"])+row("Programme",a["Programme"]);
+    $("uSummary").innerHTML=html;
+    $("rSummary").innerHTML=html+row("Caste",a["Caste"]);
+    $("uCourseTxt").textContent=a["Course"]||"B.Tech./M.Tech.";
+    $("uProgTxt").textContent=a["Programme"]||"(programme)";
+    $("uYearTxt").textContent=a["Academic Year"]||"2026-27";
+    $("uDate").value=todayISO();
   }
 
-  function generatePDF(d){
-    try{
-      var jsPDF = window.jspdf.jsPDF;
-      var doc = new jsPDF({unit:"pt", format:"a4"});
-      var W = doc.internal.pageSize.getWidth();
-      var H = doc.internal.pageSize.getHeight();
-      var M = 42, RIGHT = W - M;
-      var INK=[20,28,38], LINE=[110,120,130];
-
-      // single underlined "fill-in" field
-      function fld(label,val,x,y,endX){
-        doc.setFont("helvetica","bold"); doc.setFontSize(10.5); doc.setTextColor(INK[0],INK[1],INK[2]);
-        doc.text(label,x,y);
-        var lx = x + doc.getTextWidth(label) + 5;
-        doc.setFont("helvetica","normal"); doc.setTextColor(0,0,0);
-        if(val!=null && val!=="") doc.text(String(val), lx+2, y-1.5);
-        doc.setDrawColor(LINE[0],LINE[1],LINE[2]); doc.setLineWidth(0.5);
-        doc.line(lx, y+2, endX, y+2);
-        return lx;
-      }
-
-      // ===== Form number (top-right, underlined) =====
-      doc.setFont("helvetica","bold"); doc.setFontSize(11); doc.setTextColor(INK[0],INK[1],INK[2]);
-      doc.text("Form DOT/01-1", RIGHT, 60, {align:"right"});
-      var fnW = doc.getTextWidth("Form DOT/01-1");
-      doc.setLineWidth(0.7); doc.setDrawColor(INK[0],INK[1],INK[2]);
-      doc.line(RIGHT-fnW, 63, RIGHT, 63);
-
-      // ===== Photo box (top-right) =====
-      var pbW=92, pbH=104, pbX=RIGHT-pbW, pbY=78;
-      if(d._photo){
-        try{ doc.addImage(d._photo,"JPEG",pbX+1,pbY+1,pbW-2,pbH-2); }
-        catch(e){ try{ doc.addImage(d._photo,"PNG",pbX+1,pbY+1,pbW-2,pbH-2);}catch(e2){} }
-      } else {
-        doc.setFont("helvetica","normal"); doc.setFontSize(10); doc.setTextColor(120,120,120);
-        doc.text("Photo", pbX+pbW/2, pbY+pbH/2+3, {align:"center"});
-      }
-      doc.setDrawColor(INK[0],INK[1],INK[2]); doc.setLineWidth(0.8);
-      doc.rect(pbX,pbY,pbW,pbH);
-
-      // ===== Logo + titles =====
-      try{ doc.addImage(FORM_LOGO,"JPEG",M,150,48,48); }catch(e){}
-      var tx = M+58;
-      doc.setTextColor(INK[0],INK[1],INK[2]);
-      doc.setFont("helvetica","bold"); doc.setFontSize(13);
-      doc.text("Shivaji University, Kolhapur", tx, 162);
-      doc.setFontSize(11);
-      doc.text("School of Engineering & Technology", tx, 178);
-      doc.setFont("helvetica","normal"); doc.setFontSize(10.5);
-      doc.text("(Department of Technology)", tx, 192);
-      doc.setFont("helvetica","bold"); doc.setFontSize(16);
-      doc.text("Application for Admission", tx, 213);
-
-      // ===== Date (right) =====
-      fld("Date :", fmtDate(d["Application Date"]), 372, 236, RIGHT);
-
-      // ===== Requesting line =====
-      doc.setFont("helvetica","normal"); doc.setFontSize(10.5); doc.setTextColor(INK[0],INK[1],INK[2]);
-      doc.text("Requesting for admission to academic course,", M, 258);
-
-      // ===== Class / Academic year / Course / Programme / Caste =====
-      fld("Class :", d["Class"], M, 282, 250);
-      fld("Academic Year :", d["Academic Year"], 320, 282, RIGHT);
-      fld("Course :", d["Course"], M, 304, 250);
-      fld("Programme :", d["Programme"], 320, 304, RIGHT);
-      fld("Caste :", d["Caste"], M, 326, RIGHT);
-
-      // ===== Name (full width) =====
-      fld("Name :", d["Full Name"], M, 356, RIGHT);
-
-      // ===== Contact block (two columns) =====
-      fld("Student's Mob. No. :", d["Student Mobile"], M, 388, 290);
-      fld("Father's Mob. No :", d["Father Mobile"], 315, 388, RIGHT);
-      fld("Mother's Mob.No :", d["Mother Mobile"], M, 410, 290);
-      fld("Aadhaar No. :", d["Aadhaar No"], 315, 410, RIGHT);
-      fld("Email :", d["Email"], M, 432, 290);
-      fld("ABC ID :", d["ABC ID"], 315, 432, RIGHT);
-
-      // ===== Address (wraps) =====
-      doc.setFont("helvetica","bold"); doc.setFontSize(10.5); doc.setTextColor(INK[0],INK[1],INK[2]);
-      doc.text("Address :", M, 460);
-      var ax = M + doc.getTextWidth("Address :") + 5;
-      doc.setFont("helvetica","normal"); doc.setTextColor(0,0,0);
-      var aFull = String(d["Address"]||"");
-      var firstLine = doc.splitTextToSize(aFull, RIGHT-ax)[0] || "";
-      doc.text(firstLine, ax+2, 458.5);
-      doc.setDrawColor(LINE[0],LINE[1],LINE[2]); doc.setLineWidth(0.5);
-      doc.line(ax, 462, RIGHT, 462);
-      var rest = aFull.substring(firstLine.length).trim();
-      var restLines = rest ? doc.splitTextToSize(rest, RIGHT-M) : [];
-      var ay = 482;
-      doc.line(M, ay, RIGHT, ay);
-      if(restLines[0]) doc.text(restLines[0], M+2, ay-3.5);
-
-      // ===== State / Pin =====
-      fld("State :", d["State"], M, 510, 295);
-      fld("Pin Code :", d["Pin Code"], 320, 510, RIGHT);
-
-      // ===== Divider =====
-      doc.setDrawColor(INK[0],INK[1],INK[2]); doc.setLineWidth(1.4);
-      doc.line(M, 532, RIGHT, 532);
-
-      // ===== DOB / Place / Mother / Blood / Sex =====
-      fld("Date of birth :", fmtDate(d["Date of Birth"]), M, 562, 300);
-      fld("Place of birth :", d["Place of Birth"], 320, 562, RIGHT);
-      fld("Mother Name :", d["Mother Name"], M, 586, RIGHT);
-      fld("Blood Group :", d["Blood Group"], M, 612, 250);
-      fld("Sex :", d["Sex"], 320, 612, RIGHT);
-
-      // ===== Signature =====
-      doc.setFont("helvetica","normal"); doc.setFontSize(11); doc.setTextColor(INK[0],INK[1],INK[2]);
-      doc.text("Signature of Student", RIGHT, 720, {align:"right"});
-      doc.setDrawColor(INK[0],INK[1],INK[2]); doc.setLineWidth(1.2);
-      doc.line(M, 752, RIGHT, 752);
-
-      var fname = (d["Full Name"]||"admission").replace(/[^a-z0-9]+/gi,"_");
-      doc.save("Admission_"+fname+".pdf");
-    }catch(err){
-      console.error(err);
-      showToast("Could not generate PDF (library not loaded).", true);
-    }
-  }
-
-  // ---- Save to Google Sheet ----
-  // Deploy the Apps Script (see instructions) and paste its Web App URL below.
-  var SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbwlcDMQiFTDEPh4vFEKC7YNy8c8UVCnVr8oAtFVfF6glFRwfkodNSfmg3DNOqYM8Vay/exec"; // e.g. "https://script.google.com/macros/s/AKfy.../exec"
-
-  function saveToSheet(d){
-    if(!SHEET_ENDPOINT){
-      showToast("\u2705 PDF generated. (Add Sheet URL in code to enable Google Sheet save.)");
-      return;
-    }
-    var payload = {}; for(var k in d){ if(k!=="_photo") payload[k]=d[k]; }
-    fetch(SHEET_ENDPOINT, {
-      method:"POST",
-      mode:"no-cors",
-      headers:{"Content-Type":"text/plain;charset=utf-8"},
-      body: JSON.stringify(payload)
-    }).then(function(){
-      showToast("\u2705 Application submitted — PDF generated & saved to Google Sheet.");
-    }).catch(function(){
-      showToast("PDF generated, but saving to Google Sheet failed.", true);
+  // Build document rows
+  (function buildDocs(){
+    var tb=$("docRows");
+    DOCS.forEach(function(name,i){
+      var tr=document.createElement("tr");
+      var nm="doc_"+i;
+      tr.innerHTML='<td class="doc-no">'+(i+1)+'.</td><td>'+name+'</td>'+
+        '<td class="c"><input type="radio" name="'+nm+'" value="Yes"></td>'+
+        '<td class="c"><input type="radio" name="'+nm+'" value="No"></td>';
+      tb.appendChild(tr);
     });
-  }
-
-  // ---- Reset ----
-  $("resetBtn").addEventListener("click",function(){
-    $("admForm").reset();
-    $("dateField").value=todayISO();
-    $("academicYear").value="2026-27";
-    $("programmeField").disabled=true;
-    $("programmeField").innerHTML='<option value="">-- Select course first --</option>';
-    $("minorityWrap").style.display="none";
-    $("univWrap").style.display="none";
-    document.querySelectorAll(".bad,.good").forEach(function(e){e.classList.remove("bad","good");});
-    document.querySelectorAll(".err.show").forEach(function(e){e.classList.remove("show");});
-    photoRemove.click ? photoRemove.click():0;
-    photoPreview.style.display="none"; photoPlaceholder.style.display="block";
-    photoRemove.style.display="none";
+  })();
+  $("rAllYes").addEventListener("click",function(){
+    DOCS.forEach(function(_,i){var r=document.querySelector('input[name="doc_'+i+'"][value="Yes"]');if(r)r.checked=true;});
   });
 
-  checkGate();
+  // Tab switching
+  var tabs=document.querySelectorAll(".tab");
+  tabs.forEach(function(t){
+    t.addEventListener("click",function(){
+      tabs.forEach(function(x){x.classList.remove("active");});
+      t.classList.add("active");
+      var name=t.getAttribute("data-tab");
+      $("panelAdmission").classList.toggle("active",name==="admission");
+      $("panelUndertaking").classList.toggle("active",name==="undertaking");
+      $("panelReceipt").classList.toggle("active",name==="receipt");
+      if(name!=="admission") renderSummaries();
+    });
+  });
+
+  // ---- Undertaking PDF (DOT/9A) ----
+  var DECLARATIONS=[
+    "That I have been explained and I understand all relevant rules and regulations which I am required to follow in due course of my admission procedure and academic programme in the Department of Technology, Shivaji University.",
+    "That the information and supporting documents furnished by me along with my application are true to the best of my knowledge.",
+    "That I have not been debarred from appearing for any examination held by the Government or any other statutory body.",
+    "That I will obey the law, rules, regulations, and acts enforced by the Government from time to time and will not do anything in violation of the same whether within the Shivaji University Campus or without.",
+    "That I fully understand that I may be expelled from the Department of Technology if I fail to maintain good order and discipline as expected of the students of the said department.",
+    "That I am aware that the fee structure of the Department of Technology is subject to revision from time to time and that I will pay all due fees as charged and on time as laid down from time to time.",
+    "That I will not request for transfer of my admission to any other institution.",
+    "That I am fully aware that I will not be eligible to appear for semester examinations until and unless my attendance is not less than 75% for theory classes and not less than 100% for practical sessions as laid down in my academic curriculum.",
+    "That I am also aware that I will not be eligible to appear for semester examinations unless I have completed all submissions assigned to me as part of my academic curriculum from time to time.",
+    "That I will not take part or encourage any activity which may result in ragging amounting to the humiliation, physical/mental torture, harassment, or physical harm of my fellow students.",
+    "That I will treat the faculty and staff of the Shivaji University with utmost respect and courtesy."
+  ];
+  function smallHeader(doc,formNo){
+    var W=doc._W,M=50,RIGHT=W-M;
+    doc.setFont("times","bold"); doc.setFontSize(10.5); doc.setTextColor(INK[0],INK[1],INK[2]);
+    doc.text(formNo,RIGHT,52,{align:"right"});
+    var w=doc.getTextWidth(formNo); doc.setLineWidth(0.5); doc.setDrawColor(INK[0],INK[1],INK[2]); doc.line(RIGHT-w,55,RIGHT,55);
+    try{doc.addImage(FORM_LOGO,"JPEG",M,60,42,42);}catch(e){}
+    doc.setFont("times","bold"); doc.setFontSize(13.5); doc.text("Shivaji University, Kolhapur",W/2,72,{align:"center"});
+    doc.setFontSize(11.5); doc.text("School of Engineering & Technology",W/2,88,{align:"center"});
+    doc.setFont("times","normal"); doc.setFontSize(11); doc.text("(Department of Technology)",W/2,102,{align:"center"});
+  }
+  function genUndertaking(){
+    var a=admissionInfo();
+    if(!a.mode){showToast("Select a Class on the Admission tab first.",true);return;}
+    if(!a["Name"]){showToast("Enter the student's name on the Admission tab first.",true);return;}
+    if(!$("uAccept").checked){showToast("Please tick the acceptance checkbox to proceed.",true);return;}
+    try{
+      var doc=startDoc(),W=doc._W,M=50,RIGHT=W-M;
+      smallHeader(doc,"Form DOT/9A");
+      doc.setFont("times","bold"); doc.setFontSize(14); doc.setTextColor(INK[0],INK[1],INK[2]);
+      doc.text("Undertaking by Student",W/2,124,{align:"center"});
+
+      var y=152;
+      doc.setFont("times","normal"); doc.setFontSize(11);
+      doc.text("I, the undersigned Mr./Ms.",M,y);
+      var nx=M+doc.getTextWidth("I, the undersigned Mr./Ms. ")+2;
+      doc.setFont("times","bold"); doc.text(a["Name"],nx,y);
+      doc.setDrawColor(RULE[0],RULE[1],RULE[2]); doc.setLineWidth(0.4); doc.line(nx,y+2,RIGHT,y+2);
+
+      y+=20;
+      doc.setFont("times","normal");
+      var intro="hereby declare that I have applied for admission to the "+(a["Course"]||"B.Tech./M.Tech.")+
+        " course in "+(a["Programme"]||"____________")+" in the academic year "+(a["Academic Year"]||"2026-27")+
+        ", and I undertake the following:";
+      var introLines=doc.splitTextToSize(intro,RIGHT-M);
+      doc.text(introLines,M,y); y+=introLines.length*15+6;
+
+      doc.setFontSize(10.5);
+      for(var i=0;i<DECLARATIONS.length;i++){
+        var num=(i+1)+".";
+        var lines=doc.splitTextToSize(DECLARATIONS[i],RIGHT-M-22);
+        if(y+lines.length*13>past_limit()){ doc.addPage(); y=70; }
+        doc.setFont("times","bold"); doc.text(num,M,y);
+        doc.setFont("times","normal"); doc.text(lines,M+22,y);
+        y+=lines.length*13+5;
+      }
+      function past_limit(){return 770;}
+
+      y=Math.max(y+18,past_limit()-40);
+      if(y>past_limit()){doc.addPage();y=120;}
+      doc.setFont("times","normal"); doc.setFontSize(11);
+      doc.text("Date : "+fmtDate($("uDate").value),M,y);
+      doc.text("Sign. ____________________",RIGHT-180,y);
+      y+=20;
+      doc.text("Place : "+($("uPlace").value||"Kolhapur"),M,y);
+      y+=28;
+      doc.text("Countersigned by Parent/Guardian"+($("uGuardian").value?(" : "+$("uGuardian").value):""),M,y);
+      if($("uGuardian").value){ }
+
+      var fname=(a["Name"]||"student").replace(/[^a-z0-9]+/gi,"_");
+      doc.save("Undertaking_DOT9A_"+fname+".pdf");
+
+      saveToSheet({"Form Type":"DOT/9A (Undertaking)","Receipt Date":$("receiptDate").value,"Receipt No":$("receiptNo").value,
+        "Name":a["Name"],"Class":a["Class"],"Academic Year":a["Academic Year"],"Course":a["Course"],"Programme":a["Programme"],
+        "Place":$("uPlace").value,"Parent/Guardian":$("uGuardian").value,"Accepted":"Yes","Date":$("uDate").value});
+    }catch(err){console.error(err);showToast("Could not generate the undertaking PDF.",true);}
+  }
+  $("uGenerate").addEventListener("click",genUndertaking);
+
+  // ---- Document Receipt PDF (DOT/9B-1) ----
+  function genReceipt(){
+    var a=admissionInfo();
+    if(!a.mode){showToast("Select a Class on the Admission tab first.",true);return;}
+    if(!a["Name"]){showToast("Enter the student's name on the Admission tab first.",true);return;}
+    try{
+      var doc=startDoc(),W=doc._W,M=50,RIGHT=W-M;
+      // header
+      doc.setFont("times","bold"); doc.setFontSize(10.5); doc.setTextColor(INK[0],INK[1],INK[2]);
+      doc.text("Form DOT/9B-1",RIGHT,52,{align:"right"});
+      var w=doc.getTextWidth("Form DOT/9B-1"); doc.setLineWidth(0.5); doc.setDrawColor(INK[0],INK[1],INK[2]); doc.line(RIGHT-w,55,RIGHT,55);
+      try{doc.addImage(FORM_LOGO,"JPEG",M,60,40,40);}catch(e){}
+      var tx=M+50; doc.setFont("times","bold"); doc.setFontSize(13); doc.text("Shivaji University, Kolhapur",tx,70);
+      doc.setFontSize(11); doc.text("School of Engineering & Technology",tx,84);
+      doc.setFont("times","normal"); doc.setFontSize(10.5); doc.text("(Department of Technology)",tx,97);
+      doc.setFont("times","bold"); doc.setFontSize(14); doc.text("Receipt for Original Documents",tx,114);
+
+      var y=140; doc.setFont("times","normal"); doc.setFontSize(10.5);
+      doc.text("Received documents in original from :",M,y); y+=20;
+      fld(doc,"Class :",a["Class"],M,y,300); fld(doc,"Academic Year :",a["Academic Year"],330,y,RIGHT); y+=22;
+      fld(doc,"Course :",a["Course"],M,y,300); fld(doc,"Programme :",a["Programme"],330,y,RIGHT); y+=22;
+      fld(doc,"Caste :",a["Caste"],M,y,RIGHT); y+=22;
+      fld(doc,"Name :",a["Name"],M,y,RIGHT); y+=26;
+
+      // column headers
+      var colYes=RIGHT-150, colNo=RIGHT-70;
+      doc.setFont("times","bold"); doc.setFontSize(10.5);
+      doc.text("Particulars of Documents Received",M,y);
+      doc.text("Yes",colYes,y,{align:"center"}); doc.text("No",colNo,y,{align:"center"});
+      doc.setFontSize(8.5); doc.setFont("times","italic"); doc.text("(Please Tick)",colNo+24,y);
+      y+=6; doc.setDrawColor(RULE[0],RULE[1],RULE[2]); doc.setLineWidth(0.4); doc.line(M,y,RIGHT,y); y+=16;
+
+      doc.setFont("times","normal"); doc.setFontSize(10);
+      var box=9;
+      for(var i=0;i<DOCS.length;i++){
+        var label=(i+1)+".  "+DOCS[i];
+        if(i===DOCS.length-1 && $("rOtherText").value.trim()) label+=" : "+$("rOtherText").value.trim();
+        doc.text(label,M,y);
+        var sel=document.querySelector('input[name="doc_'+i+'"]:checked');
+        var v=sel?sel.value:"";
+        // Yes box
+        doc.setDrawColor(90,98,108); doc.setLineWidth(0.5);
+        doc.rect(colYes-box/2,y-box+1.5,box,box);
+        doc.rect(colNo-box/2,y-box+1.5,box,box);
+        if(v==="Yes"){doc.setFont("zapfdingbats","normal");doc.setFontSize(9);doc.text("4",colYes-box/2+1.5,y);doc.setFont("times","normal");doc.setFontSize(10);}
+        if(v==="No"){doc.setFont("zapfdingbats","normal");doc.setFontSize(9);doc.text("4",colNo-box/2+1.5,y);doc.setFont("times","normal");doc.setFontSize(10);}
+        y+=18.5;
+      }
+
+      y+=8;
+      doc.setFontSize(10.5);
+      doc.text("Date : "+fmtDate(todayISO()),M,y);
+      doc.setFont("times","bold"); doc.text("Signature of Student",RIGHT,y,{align:"right"}); doc.setFont("times","normal");
+      y+=26;
+      doc.setFont("times","bold"); doc.text("Verified by:",M,y); doc.setFont("times","normal"); y+=20;
+      fld(doc,"Sign :","",M,y,250);
+      doc.setFont("times","bold"); doc.text("Sign for B.Tech / M.Tech Cell",RIGHT,y,{align:"right"}); doc.setFont("times","normal"); y+=22;
+      fld(doc,"Name :","",M,y,250); y+=22;
+      fld(doc,"Designation :","",M,y,250);
+
+      var fname=(a["Name"]||"student").replace(/[^a-z0-9]+/gi,"_");
+      doc.save("DocReceipt_DOT9B_"+fname+".pdf");
+
+      // sheet save with checklist
+      var rec={"Form Type":"DOT/9B-1 (Document Receipt)","Receipt Date":$("receiptDate").value,"Receipt No":$("receiptNo").value,
+        "Name":a["Name"],"Class":a["Class"],"Academic Year":a["Academic Year"],"Course":a["Course"],"Programme":a["Programme"],"Caste":a["Caste"]};
+      DOCS.forEach(function(dn,i){var s=document.querySelector('input[name="doc_'+i+'"]:checked');rec[dn]=s?s.value:"-";});
+      if($("rOtherText").value.trim()) rec["Any Other Document"]=$("rOtherText").value.trim();
+      saveToSheet(rec);
+    }catch(err){console.error(err);showToast("Could not generate the document receipt PDF.",true);}
+  }
+  $("rGenerate").addEventListener("click",genReceipt);
+
+  checkGate(); applyMode();
 })();
 </script>
 </body>
 </html>
+
